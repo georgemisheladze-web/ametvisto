@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Caucasus Luxe Travel | Premium Georgian Experiences</title>
+    <title>Global Wanderlust | Premium Travel Experiences</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        /* Global Styles */
+        /* CSS will go here */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
         }
 
         body {
-            background-color: #f9f9f9;
-            color: #333;
+            font-family: 'Poppins', sans-serif;
             line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
         }
 
         .container {
@@ -159,7 +160,7 @@
             color: #2a5ea7;
         }
 
-        /* Tours Grid */
+        /* Featured Tours */
         .section {
             padding: 5rem 0;
         }
@@ -260,6 +261,258 @@
             font-size: 1.2rem;
         }
 
+        /* About Section */
+        .about {
+            background: #f1f6ff;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-img {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #2a5ea7;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: #2a5ea7;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: #2a5ea7;
+            color: #fff;
+        }
+
+        .testimonials .section-title h2 {
+            color: #fff;
+        }
+
+        .testimonials .section-title p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .testimonial-text::before {
+            content: '"';
+            font-size: 4rem;
+            color: rgba(255, 255, 255, 0.2);
+            position: absolute;
+            top: -1.5rem;
+            left: -1rem;
+            font-family: serif;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 1rem;
+        }
+
+        .author-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            margin-bottom: 0.2rem;
+        }
+
+        .author-info p {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: #f1f6ff;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #2a5ea7;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 2rem;
+            color: #555;
+        }
+
+        .contact-details div {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .contact-details i {
+            width: 40px;
+            height: 40px;
+            background: #2a5ea7;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+        }
+
+        .contact-form {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Payment Methods */
+        .payment-methods {
+            padding: 3rem 0;
+            background: #fff;
+        }
+
+        .payment-methods h3 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-family: 'Playfair Display', serif;
+            color: #2a5ea7;
+            font-size: 2rem;
+        }
+
+        .payment-icons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .payment-icon {
+            width: 80px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 0.5rem;
+        }
+
+        .payment-icon img {
+            max-width: 100%;
+            max-height: 100%;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s;
+        }
+
+        .payment-icon:hover img {
+            filter: grayscale(0);
+            opacity: 1;
+        }
+
         /* Footer */
         footer {
             background: #1a3a7a;
@@ -345,7 +598,131 @@
             font-size: 0.9rem;
         }
 
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background: #fff;
+            width: 90%;
+            max-width: 800px;
+            margin: 3rem auto;
+            border-radius: 10px;
+            overflow: hidden;
+            animation: modalFadeIn 0.3s;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            padding: 1.5rem;
+            background: #2a5ea7;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .payment-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .payment-option {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .payment-option:hover {
+            border-color: #2a5ea7;
+            box-shadow: 0 5px 15px rgba(42, 94, 167, 0.1);
+        }
+
+        .payment-option.selected {
+            border-color: #2a5ea7;
+            background: #f1f6ff;
+        }
+
+        .payment-option i {
+            font-size: 2.5rem;
+            color: #2a5ea7;
+            margin-bottom: 1rem;
+        }
+
+        .payment-option h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        .payment-option p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .payment-form {
+            margin-top: 2rem;
+            display: none;
+        }
+
+        .payment-form.active {
+            display: block;
+        }
+
         /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-img {
+                order: -1;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+
         @media (max-width: 768px) {
             nav ul {
                 display: none;
@@ -423,18 +800,18 @@
     <!-- Header -->
     <header>
         <div class="container header-container">
-            <a href="index.html" class="logo">Caucasus<span>Luxe</span></a>
+            <a href="#" class="logo">Global<span>Wanderlust</span></a>
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
             </button>
             <nav>
                 <ul id="navMenu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="luxury-tours.html">Luxury</a></li>
-                    <li><a href="adventure-tours.html">Adventure</a></li>
-                    <li><a href="health-tours.html">Health</a></li>
-                    <li><a href="business-tours.html">Business</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#tours">Tours</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#" id="bookNowBtn">Book Now</a></li>
                 </ul>
             </nav>
         </div>
@@ -443,11 +820,11 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Discover Georgia's Most Exclusive Experiences</h1>
-            <p>Helicopters, private vineyards, 5-star adventure - tailored for discerning travelers</p>
+            <h1>Discover Your Dream Destination</h1>
+            <p>Experience the world's most breathtaking locations with our expertly crafted tours and personalized service.</p>
             <div class="btn-group">
-                <a href="luxury-tours.html" class="btn">Explore Tours</a>
-                <a href="contact.html" class="btn btn-outline">Custom Itinerary</a>
+                <a href="#tours" class="btn">Explore Tours</a>
+                <a href="#" class="btn btn-outline" id="heroBookBtn">Book Now</a>
             </div>
         </div>
     </section>
@@ -456,80 +833,270 @@
     <section class="section" id="tours">
         <div class="container">
             <div class="section-title">
-                <h2>Signature Experiences</h2>
-                <p>Our most sought-after journeys through Georgia's breathtaking landscapes</p>
+                <h2>Featured Tours</h2>
+                <p>Discover our most popular travel packages curated for unforgettable experiences.</p>
             </div>
             <div class="tours-grid">
                 <!-- Tour 1 -->
                 <div class="tour-card">
                     <div class="tour-img">
-                        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Helicopter over vineyards">
+                        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Santorini, Greece">
                     </div>
                     <div class="tour-info">
-                        <h3>Helicopter Wine Safari</h3>
+                        <h3>Santorini Sunset Experience</h3>
                         <div class="tour-location">
                             <i class="fas fa-map-marker-alt"></i>
-                            <span>Kakheti, Georgia</span>
-                        </div>
-                        <div class="tour-details">
-                            <div><i class="far fa-calendar"></i> 5 Days</div>
-                            <div><i class="fas fa-users"></i> Private</div>
-                        </div>
-                        <div class="tour-price">$6,500 <span>/person</span></div>
-                        <a href="luxury-tours.html#helicopter-wine" class="btn" style="width: 100%; text-align: center; margin-top: 1rem;">Details</a>
-                    </div>
-                </div>
-
-                <!-- Tour 2 -->
-                <div class="tour-card">
-                    <div class="tour-img">
-                        <img src="https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1530&q=80" alt="Mountain trekking">
-                    </div>
-                    <div class="tour-info">
-                        <h3>Svaneti Glacier Trek</h3>
-                        <div class="tour-location">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Svaneti, Georgia</span>
+                            <span>Santorini, Greece</span>
                         </div>
                         <div class="tour-details">
                             <div><i class="far fa-calendar"></i> 7 Days</div>
-                            <div><i class="fas fa-users"></i> Small Group</div>
+                            <div><i class="fas fa-users"></i> 12 People</div>
                         </div>
-                        <div class="tour-price">$1,900 <span>/person</span></div>
-                        <a href="adventure-tours.html#svaneti-trek" class="btn" style="width: 100%; text-align: center; margin-top: 1rem;">Details</a>
+                        <div class="tour-price">$2,499 <span>/person</span></div>
+                        <a href="#" class="btn" style="width: 100%; text-align: center; margin-top: 1rem;" onclick="openBookingModal('Santorini Sunset Experience')">Book Now</a>
                     </div>
                 </div>
-
-                <!-- Tour 3 -->
+                
+                <!-- Tour 2 -->
                 <div class="tour-card">
                     <div class="tour-img">
-                        <img src="https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1380&q=80" alt="Medical facility">
+                        <img src="https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1530&q=80" alt="Kyoto, Japan">
                     </div>
                     <div class="tour-info">
-                        <h3>Stem Cell Revival</h3>
+                        <h3>Japanese Cultural Journey</h3>
                         <div class="tour-location">
                             <i class="fas fa-map-marker-alt"></i>
-                            <span>Tbilisi, Georgia</span>
+                            <span>Kyoto, Japan</span>
                         </div>
                         <div class="tour-details">
                             <div><i class="far fa-calendar"></i> 10 Days</div>
-                            <div><i class="fas fa-users"></i> Private</div>
+                            <div><i class="fas fa-users"></i> 8 People</div>
                         </div>
-                        <div class="tour-price">$15,000 <span>/person</span></div>
-                        <a href="health-tours.html#stem-cell" class="btn" style="width: 100%; text-align: center; margin-top: 1rem;">Details</a>
+                        <div class="tour-price">$3,299 <span>/person</span></div>
+                        <a href="#" class="btn" style="width: 100%; text-align: center; margin-top: 1rem;" onclick="openBookingModal('Japanese Cultural Journey')">Book Now</a>
+                    </div>
+                </div>
+                
+                <!-- Tour 3 -->
+                <div class="tour-card">
+                    <div class="tour-img">
+                        <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80" alt="Safari, Kenya">
+                    </div>
+                    <div class="tour-info">
+                        <h3>African Safari Adventure</h3>
+                        <div class="tour-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Maasai Mara, Kenya</span>
+                        </div>
+                        <div class="tour-details">
+                            <div><i class="far fa-calendar"></i> 14 Days</div>
+                            <div><i class="fas fa-users"></i> 6 People</div>
+                        </div>
+                        <div class="tour-price">$4,799 <span>/person</span></div>
+                        <a href="#" class="btn" style="width: 100%; text-align: center; margin-top: 1rem;" onclick="openBookingModal('African Safari Adventure')">Book Now</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="section" style="background: #f1f6ff;">
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Our Story</h2>
+                    <p>Founded in 2010, Global Wanderlust began as a small team of passionate travelers with a shared vision: to create extraordinary travel experiences that go beyond the ordinary.</p>
+                    <p>Today, we've grown into a premier travel agency with operations in over 30 countries, but our core values remain the same - authenticity, excellence, and personalized service.</p>
+                    <p>Our expert team has personally visited every destination we offer, ensuring we provide only the best experiences for our clients.</p>
+                    
+                    <div class="stats">
+                        <div class="stat-item">
+                            <h3>13+</h3>
+                            <p>Years Experience</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>5k+</h3>
+                            <p>Happy Travelers</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>50+</h3>
+                            <p>Destinations</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1380&q=80" alt="Our Team">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section testimonials" id="testimonials">
         <div class="container">
             <div class="section-title">
-                <h2>Ready for Your Georgian Adventure?</h2>
-                <p>Contact our luxury travel specialists to design your perfect itinerary</p>
-                <a href="contact.html" class="btn" style="margin-top: 2rem;">Get Started</a>
+                <h2>Traveler Stories</h2>
+                <p>Hear from our satisfied customers about their unforgettable experiences with Global Wanderlust.</p>
+            </div>
+            <div class="testimonials-grid">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>The Santorini tour exceeded all our expectations. Every detail was perfectly arranged, from the boutique hotel to the private yacht sunset cruise. We'll definitely travel with Global Wanderlust again!</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah Johnson">
+                        </div>
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>Santorini, Greece</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>Our Japanese cultural tour was a once-in-a-lifetime experience. The tea ceremony with a master, the hidden Kyoto temples, and the ryokan stay were all highlights. The guides were incredibly knowledgeable.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Michael Chen">
+                        </div>
+                        <div class="author-info">
+                            <h4>Michael Chen</h4>
+                            <p>Kyoto, Japan</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>The African safari was beyond anything we imagined. Seeing the Big Five up close, staying at the luxury tented camp, and learning from our Maasai guide made this trip unforgettable. Flawless organization.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emily Rodriguez">
+                        </div>
+                        <div class="author-info">
+                            <h4>Emily Rodriguez</h4>
+                            <p>Maasai Mara, Kenya</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Methods -->
+    <section class="payment-methods">
+        <div class="container">
+            <h3>We Accept</h3>
+            <div class="payment-icons">
+                <div class="payment-icon">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/2560px-Visa_Inc._logo.svg.png" alt="Visa">
+                </div>
+                <div class="payment-icon">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png" alt="Mastercard">
+                </div>
+                <div class="payment-icon">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/American_Express_logo_%282018%29.svg/1200px-American_Express_logo_%282018%29.svg.png" alt="American Express">
+                </div>
+                <div class="payment-icon">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/PayPal_Logo_Icon_2014.svg/1200px-PayPal_Logo_Icon_2014.svg.png" alt="PayPal">
+                </div>
+                <div class="payment-icon">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/1200px-Bitcoin.svg.png" alt="Bitcoin">
+                </div>
+                <div class="payment-icon">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ethereum-icon-purple.svg/1200px-Ethereum-icon-purple.svg.png" alt="Ethereum">
+                </div>
+                <div class="payment-icon">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Western_Union_logo.svg/2560px-Western_Union_logo.svg.png" alt="Western Union">
+                </div>
+                <div class="payment-icon">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Bank_transfer.svg/1200px-Bank_transfer.svg.png" alt="Bank Transfer">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>Have questions or ready to book your next adventure? Contact our travel specialists today.</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p>Our team is available to assist you with any inquiries or to help plan your perfect getaway.</p>
+                    
+                    <div class="contact-details">
+                        <div>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Address</h4>
+                                <p>123 Travel Avenue, Suite 456<br>New York, NY 10001</p>
+                            </div>
+                        </div>
+                        <div>
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                        <div>
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>info@globalwanderlust.com</p>
+                            </div>
+                        </div>
+                        <div>
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Hours</h4>
+                                <p>Monday - Friday: 9am - 6pm<br>Saturday: 10am - 4pm</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" name="subject">
+                                <option value="general">General Inquiry</option>
+                                <option value="booking">Booking Assistance</option>
+                                <option value="custom">Custom Tour Request</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
@@ -539,8 +1106,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>Caucasus Luxe Travel</h3>
-                    <p>Creating extraordinary travel experiences in Georgia since 2023. We specialize in curated, personalized journeys.</p>
+                    <h3>Global Wanderlust</h3>
+                    <p>Creating extraordinary travel experiences since 2010. We specialize in curated, personalized journeys to the world's most breathtaking destinations.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -551,43 +1118,206 @@
                 <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="luxury-tours.html">Luxury Tours</a></li>
-                        <li><a href="adventure-tours.html">Adventure Tours</a></li>
-                        <li><a href="health-tours.html">Health Tours</a></li>
-                        <li><a href="business-tours.html">Business Tours</a></li>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#tours">Tours</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h3>Contact Us</h3>
-                    <p>123 Rustaveli Ave, Tbilisi</p>
-                    <p>+995 555 123 456</p>
-                    <p>info@caucasusluxe.com</p>
+                    <h3>Destinations</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Europe</a></li>
+                        <li><a href="#">Asia</a></li>
+                        <li><a href="#">Africa</a></li>
+                        <li><a href="#">Americas</a></li>
+                        <li><a href="#">Oceania</a></li>
+                    </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Newsletter</h3>
-                    <p>Subscribe for exclusive offers and travel inspiration.</p>
+                    <p>Subscribe to our newsletter for travel inspiration, exclusive offers, and the latest updates.</p>
                     <form class="newsletter-form">
-                        <input type="email" placeholder="Your Email" required>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email Address" required>
+                        </div>
                         <button type="submit" class="btn">Subscribe</button>
                     </form>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 Caucasus Luxe Travel. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+                <p>&copy; 2023 Global Wanderlust. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
             </div>
         </div>
     </footer>
+
+    <!-- Booking Modal -->
+    <div class="modal" id="bookingModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Book Your Tour</h3>
+                <button class="close-modal" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h4 id="selectedTourTitle">Santorini Sunset Experience</h4>
+                <p>Please fill out the booking form and select your preferred payment method.</p>
+                
+                <form id="bookingForm">
+                    <div class="form-group">
+                        <label for="bookingName">Full Name</label>
+                        <input type="text" id="bookingName" name="bookingName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bookingEmail">Email Address</label>
+                        <input type="email" id="bookingEmail" name="bookingEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bookingPhone">Phone Number</label>
+                        <input type="tel" id="bookingPhone" name="bookingPhone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bookingDate">Preferred Travel Date</label>
+                        <input type="date" id="bookingDate" name="bookingDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bookingGuests">Number of Guests</label>
+                        <input type="number" id="bookingGuests" name="bookingGuests" min="1" max="10" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bookingNotes">Special Requests</label>
+                        <textarea id="bookingNotes" name="bookingNotes" rows="3"></textarea>
+                    </div>
+                    
+                    <h4 style="margin: 1.5rem 0 1rem;">Select Payment Method</h4>
+                    <div class="payment-options">
+                        <div class="payment-option" data-payment="credit">
+                            <i class="far fa-credit-card"></i>
+                            <h4>Credit/Debit Card</h4>
+                            <p>Visa, Mastercard, American Express</p>
+                        </div>
+                        <div class="payment-option" data-payment="paypal">
+                            <i class="fab fa-paypal"></i>
+                            <h4>PayPal</h4>
+                            <p>Secure online payments</p>
+                        </div>
+                        <div class="payment-option" data-payment="crypto">
+                            <i class="fab fa-bitcoin"></i>
+                            <h4>Cryptocurrency</h4>
+                            <p>Bitcoin, Ethereum, USDT</p>
+                        </div>
+                        <div class="payment-option" data-payment="bank">
+                            <i class="fas fa-university"></i>
+                            <h4>Bank Transfer</h4>
+                            <p>Direct bank payment</p>
+                        </div>
+                        <div class="payment-option" data-payment="western">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <h4>Western Union</h4>
+                            <p>International money transfer</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Credit Card Form -->
+                    <div class="payment-form" id="creditForm">
+                        <div class="form-group">
+                            <label for="cardNumber">Card Number</label>
+                            <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456">
+                        </div>
+                        <div class="form-group">
+                            <label for="cardName">Name on Card</label>
+                            <input type="text" id="cardName" name="cardName" placeholder="John Doe">
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div class="form-group">
+                                <label for="cardExpiry">Expiry Date</label>
+                                <input type="text" id="cardExpiry" name="cardExpiry" placeholder="MM/YY">
+                            </div>
+                            <div class="form-group">
+                                <label for="cardCvv">CVV</label>
+                                <input type="text" id="cardCvv" name="cardCvv" placeholder="123">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- PayPal Form -->
+                    <div class="payment-form" id="paypalForm">
+                        <p>You will be redirected to PayPal to complete your payment after submitting this form.</p>
+                        <div class="form-group">
+                            <label for="paypalEmail">PayPal Email</label>
+                            <input type="email" id="paypalEmail" name="paypalEmail">
+                        </div>
+                    </div>
+                    
+                    <!-- Crypto Form -->
+                    <div class="payment-form" id="cryptoForm">
+                        <div class="form-group">
+                            <label for="cryptoType">Cryptocurrency</label>
+                            <select id="cryptoType" name="cryptoType">
+                                <option value="bitcoin">Bitcoin (BTC)</option>
+                                <option value="ethereum">Ethereum (ETH)</option>
+                                <option value="usdt">Tether (USDT)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Wallet Address</label>
+                            <p style="font-family: monospace; background: #f1f1f1; padding: 0.5rem; border-radius: 5px; word-break: break-all;">3FZbgi29cpjq2GjdwV8eyHuJJnkLtktZc5</p>
+                            <p style="font-size: 0.8rem; color: #666;">Send payment to this address. Your booking will be confirmed after 3 network confirmations.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Bank Transfer Form -->
+                    <div class="payment-form" id="bankForm">
+                        <div class="form-group">
+                            <label>Bank Details</label>
+                            <p><strong>Bank Name:</strong> International Travel Bank</p>
+                            <p><strong>Account Name:</strong> Global Wanderlust Tours Inc.</p>
+                            <p><strong>Account Number:</strong> 1234567890</p>
+                            <p><strong>SWIFT/BIC:</strong> ITBKENYAXXX</p>
+                            <p><strong>IBAN:</strong> KE12345678901234567890</p>
+                            <p style="font-size: 0.8rem; color: #666;">Please include your booking reference in the transfer details.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Western Union Form -->
+                    <div class="payment-form" id="westernForm">
+                        <div class="form-group">
+                            <label for="westernSender">Sender's Full Name</label>
+                            <input type="text" id="westernSender" name="westernSender" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="westernCountry">Sender's Country</label>
+                            <input type="text" id="westernCountry" name="westernCountry" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Recipient Details</label>
+                            <p><strong>Recipient Name:</strong> Global Wanderlust Tours Inc.</p>
+                            <p><strong>Recipient Country:</strong> United States</p>
+                            <p><strong>Recipient City:</strong> New York</p>
+                            <p style="font-size: 0.8rem; color: #666;">After sending the payment, please email us the MTCN number.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group" style="margin-top: 2rem;">
+                        <input type="checkbox" id="agreeTerms" name="agreeTerms" required>
+                        <label for="agreeTerms">I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a></label>
+                    </div>
+                    
+                    <button type="submit" class="btn" style="width: 100%; margin-top: 1rem;">Complete Booking</button>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <script>
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const navMenu = document.getElementById('navMenu');
-
+        
         mobileMenuBtn.addEventListener('click', () => {
             navMenu.classList.toggle('show');
         });
-
+        
         // Close mobile menu when clicking on a link
         const navLinks = document.querySelectorAll('#navMenu a');
         navLinks.forEach(link => {
@@ -595,26 +1325,136 @@
                 navMenu.classList.remove('show');
             });
         });
-
+        
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-
+                
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
-
+                
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     const headerHeight = document.querySelector('header').offsetHeight;
                     const targetPosition = targetElement.offsetTop - headerHeight;
-
+                    
                     window.scrollTo({
                         top: targetPosition,
                         behavior: 'smooth'
                     });
                 }
             });
+        });
+        
+        // Booking Modal
+        const bookingModal = document.getElementById('bookingModal');
+        const bookNowBtns = document.querySelectorAll('#bookNowBtn, #heroBookBtn, .tour-card .btn');
+        const closeModal = document.getElementById('closeModal');
+        
+        function openBookingModal(tourTitle) {
+            if (tourTitle) {
+                document.getElementById('selectedTourTitle').textContent = tourTitle;
+            }
+            bookingModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeBookingModal() {
+            bookingModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        bookNowBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                openBookingModal();
+            });
+        });
+        
+        closeModal.addEventListener('click', closeBookingModal);
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === bookingModal) {
+                closeBookingModal();
+            }
+        });
+        
+        // Payment Method Selection
+        const paymentOptions = document.querySelectorAll('.payment-option');
+        const paymentForms = document.querySelectorAll('.payment-form');
+        
+        paymentOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                // Remove selected class from all options
+                paymentOptions.forEach(opt => opt.classList.remove('selected'));
+                
+                // Add selected class to clicked option
+                option.classList.add('selected');
+                
+                // Hide all payment forms
+                paymentForms.forEach(form => form.style.display = 'none');
+                
+                // Show selected payment form
+                const paymentType = option.getAttribute('data-payment');
+                document.getElementById(`${paymentType}Form`).style.display = 'block';
+            });
+        });
+        
+        // Default select first payment option
+        if (paymentOptions.length > 0) {
+            paymentOptions[0].click();
+        }
+        
+        // Form Submission
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            e.target.reset();
+        });
+        
+        document.getElementById('bookingForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your booking! We will send you a confirmation shortly.');
+            closeBookingModal();
+            e.target.reset();
+        });
+        
+        // Newsletter Form
+        document.querySelector('.newsletter-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for subscribing to our newsletter!');
+            e.target.reset();
+        });
+        
+        // Animation on scroll
+        window.addEventListener('scroll', revealOnScroll);
+        
+        function revealOnScroll() {
+            const elements = document.querySelectorAll('.tour-card, .about-img, .testimonial-card, .contact-form');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementPosition < windowHeight - 100) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+        
+        // Initialize elements with hidden state
+        document.querySelectorAll('.tour-card, .about-img, .testimonial-card, .contact-form').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        });
+        
+        // Run once on page load
+        window.addEventListener('load', () => {
+            revealOnScroll();
         });
     </script>
 </body>
