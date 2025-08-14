@@ -1,1461 +1,167 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Global Wanderlust | Premium Travel Experiences</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        /* CSS will go here */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* Header Styles */
-        header {
-            background-color: #fff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #2a5ea7;
-            text-decoration: none;
-        }
-
-        .logo span {
-            color: #f7941d;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 2rem;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s;
-            position: relative;
-        }
-
-        nav ul li a:hover {
-            color: #2a5ea7;
-        }
-
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            background: #2a5ea7;
-            bottom: -5px;
-            left: 0;
-            transition: width 0.3s;
-        }
-
-        nav ul li a:hover::after {
-            width: 100%;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #333;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1506929562872-bb421503ef21?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1368&q=80') no-repeat center center/cover;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            color: #fff;
-            margin-top: 70px;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background: #2a5ea7;
-            color: #fff;
-            padding: 0.8rem 2rem;
-            border: none;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background: #1d4a8a;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 2px solid #fff;
-            margin-left: 1rem;
-        }
-
-        .btn-outline:hover {
-            background: #fff;
-            color: #2a5ea7;
-        }
-
-        /* Featured Tours */
-        .section {
-            padding: 5rem 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-title h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: #2a5ea7;
-            margin-bottom: 1rem;
-        }
-
-        .section-title p {
-            color: #666;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .tours-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .tour-card {
-            background: #fff;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .tour-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .tour-img {
-            height: 250px;
-            overflow: hidden;
-        }
-
-        .tour-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-
-        .tour-card:hover .tour-img img {
-            transform: scale(1.1);
-        }
-
-        .tour-info {
-            padding: 1.5rem;
-        }
-
-        .tour-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: #2a5ea7;
-        }
-
-        .tour-location {
-            display: flex;
-            align-items: center;
-            color: #f7941d;
-            margin-bottom: 1rem;
-        }
-
-        .tour-location i {
-            margin-right: 0.5rem;
-        }
-
-        .tour-details {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 1.5rem;
-        }
-
-        .tour-details div {
-            display: flex;
-            align-items: center;
-        }
-
-        .tour-details i {
-            margin-right: 0.5rem;
-            color: #2a5ea7;
-        }
-
-        .tour-price {
-            font-weight: 700;
-            color: #2a5ea7;
-            font-size: 1.2rem;
-        }
-
-        /* About Section */
-        .about {
-            background: #f1f6ff;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-img {
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .about-img img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .about-text h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: #2a5ea7;
-            margin-bottom: 1.5rem;
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-            color: #555;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 1.5rem;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .stat-item h3 {
-            font-size: 2.5rem;
-            color: #2a5ea7;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-item p {
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        /* Testimonials */
-        .testimonials {
-            background: #2a5ea7;
-            color: #fff;
-        }
-
-        .testimonials .section-title h2 {
-            color: #fff;
-        }
-
-        .testimonials .section-title p {
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .testimonial-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 10px;
-            backdrop-filter: blur(5px);
-        }
-
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 1.5rem;
-            position: relative;
-        }
-
-        .testimonial-text::before {
-            content: '"';
-            font-size: 4rem;
-            color: rgba(255, 255, 255, 0.2);
-            position: absolute;
-            top: -1.5rem;
-            left: -1rem;
-            font-family: serif;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-        }
-
-        .author-img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-right: 1rem;
-        }
-
-        .author-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .author-info h4 {
-            margin-bottom: 0.2rem;
-        }
-
-        .author-info p {
-            font-size: 0.8rem;
-            opacity: 0.8;
-        }
-
-        /* Contact Section */
-        .contact {
-            background: #f1f6ff;
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-
-        .contact-info h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            color: #2a5ea7;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-info p {
-            margin-bottom: 2rem;
-            color: #555;
-        }
-
-        .contact-details div {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .contact-details i {
-            width: 40px;
-            height: 40px;
-            background: #2a5ea7;
-            color: #fff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 1rem;
-        }
-
-        .contact-form {
-            background: #fff;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .form-group textarea {
-            height: 150px;
-            resize: vertical;
-        }
-
-        /* Payment Methods */
-        .payment-methods {
-            padding: 3rem 0;
-            background: #fff;
-        }
-
-        .payment-methods h3 {
-            text-align: center;
-            margin-bottom: 2rem;
-            font-family: 'Playfair Display', serif;
-            color: #2a5ea7;
-            font-size: 2rem;
-        }
-
-        .payment-icons {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-        }
-
-        .payment-icon {
-            width: 80px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #fff;
-            border-radius: 5px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            padding: 0.5rem;
-        }
-
-        .payment-icon img {
-            max-width: 100%;
-            max-height: 100%;
-            filter: grayscale(100%);
-            opacity: 0.7;
-            transition: all 0.3s;
-        }
-
-        .payment-icon:hover img {
-            filter: grayscale(0);
-            opacity: 1;
-        }
-
-        /* Footer */
-        footer {
-            background: #1a3a7a;
-            color: #fff;
-            padding: 4rem 0 2rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-column h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            padding-bottom: 0.5rem;
-        }
-
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 50px;
-            height: 2px;
-            background: #f7941d;
-        }
-
-        .footer-column p {
-            margin-bottom: 1rem;
-            opacity: 0.8;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.8rem;
-            list-style: none;
-        }
-
-        .footer-links a {
-            color: #fff;
-            text-decoration: none;
-            opacity: 0.8;
-            transition: opacity 0.3s;
-        }
-
-        .footer-links a:hover {
-            opacity: 1;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: #fff;
-            transition: background 0.3s;
-        }
-
-        .social-links a:hover {
-            background: #f7941d;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .footer-bottom p {
-            opacity: 0.7;
-            font-size: 0.9rem;
-        }
-
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 2000;
-            overflow-y: auto;
-        }
-
-        .modal-content {
-            background: #fff;
-            width: 90%;
-            max-width: 800px;
-            margin: 3rem auto;
-            border-radius: 10px;
-            overflow: hidden;
-            animation: modalFadeIn 0.3s;
-        }
-
-        @keyframes modalFadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .modal-header {
-            padding: 1.5rem;
-            background: #2a5ea7;
-            color: #fff;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .modal-header h3 {
-            font-family: 'Playfair Display', serif;
-        }
-
-        .close-modal {
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        .modal-body {
-            padding: 2rem;
-        }
-
-        .payment-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .payment-option {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 1.5rem;
-            text-align: center;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        .payment-option:hover {
-            border-color: #2a5ea7;
-            box-shadow: 0 5px 15px rgba(42, 94, 167, 0.1);
-        }
-
-        .payment-option.selected {
-            border-color: #2a5ea7;
-            background: #f1f6ff;
-        }
-
-        .payment-option i {
-            font-size: 2.5rem;
-            color: #2a5ea7;
-            margin-bottom: 1rem;
-        }
-
-        .payment-option h4 {
-            margin-bottom: 0.5rem;
-        }
-
-        .payment-option p {
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        .payment-form {
-            margin-top: 2rem;
-            display: none;
-        }
-
-        .payment-form.active {
-            display: block;
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 992px) {
-            .about-content,
-            .contact-content {
-                grid-template-columns: 1fr;
-            }
-
-            .about-img {
-                order: -1;
-            }
-
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            nav ul {
-                display: none;
-                position: absolute;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                background: #fff;
-                flex-direction: column;
-                padding: 1rem 0;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-            }
-
-            nav ul.show {
-                display: flex;
-            }
-
-            nav ul li {
-                margin: 0;
-                padding: 0.8rem 2rem;
-                border-bottom: 1px solid #eee;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .btn {
-                padding: 0.6rem 1.5rem;
-            }
-
-            .section {
-                padding: 3rem 0;
-            }
-
-            .section-title h2 {
-                font-size: 2rem;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .tours-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .stats {
-                grid-template-columns: 1fr;
-            }
-
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .btn-group {
-                display: flex;
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .btn-outline {
-                margin-left: 0;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Header -->
-    <header>
-        <div class="container header-container">
-            <a href="#" class="logo">Global<span>Wanderlust</span></a>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
+import React, { useState } from "react";
+
+// Single-file React component. Uses Tailwind classes for styling.
+export default function FunnyMaxCharger() {
+  const [name, setName] = useState("");
+  const [card, setCard] = useState("");
+  const [exp, setExp] = useState("");
+  const [cvc, setCvc] = useState("");
+  const [method, setMethod] = useState("card");
+  const [open, setOpen] = useState(false);
+
+  const maskCard = (v) => {
+    // keep digits only, insert spaces 4-4-4-4
+    const digits = v.replace(/\D/g, "").slice(0, 16);
+    return digits.replace(/(.{4})/g, "$1 ").trim();
+  };
+
+  const maskExp = (v) => {
+    const digits = v.replace(/\D/g, "").slice(0, 4);
+    if (digits.length <= 2) return digits;
+    return `${digits.slice(0, 2)}/${digits.slice(2)}`;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setOpen(true);
+  };
+
+  const isValid = () => {
+    return (
+      name.trim().length > 4 &&
+      card.replace(/\s/g, "").length === 16 &&
+      /^(0[1-9]|1[0-2])\/\d{2}$/.test(exp) &&
+      /^\d{3,4}$/.test(cvc)
+    );
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 text-slate-50 flex items-center justify-center p-4">
+      <div className="w-full max-w-xl">
+        <div className="mb-4 flex items-center gap-3">
+          <div className="size-10 rounded-2xl bg-slate-700 grid place-items-center shadow">
+            <span className="text-lg">💳</span>
+          </div>
+          <div>
+            <h1 className="text-2xl font-bold leading-none"> MAX Charger</h1>
+            <p className="text-xs text-slate-300"></p>
+          </div>
+        </div>
+
+        <div className="rounded-3xl bg-slate-900/60 border border-slate-700 shadow-xl p-5">
+          <form onSubmit={handleSubmit} className="space-y-5">
+            {/* Amount section — only MAX button */}
+            <div className="rounded-2xl border border-slate-700 p-4 bg-slate-800/60">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm text-slate-300">თანხა</p>
+                  <p className="text-3xl font-extrabold tracking-tight">₾ —</p>
+                </div>
+                <button type="button" onClick={() => alert("MAX არჩეულია. რამდენიც გაქვს, იმდენიც 😅 (ხუმრობაა)")} className="px-5 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 active:scale-95 transition font-semibold text-slate-900 shadow">
+                  MAX
+                </button>
+              </div>
+              <p className="mt-2 text-xs text-slate-400">თანხის ველი განზრახ არ არსებობს. აქ მხოლოდ <span className="font-bold text-slate-200">MAX</span> მუშაობს 🙃</p>
+            </div>
+
+            {/* Payer info */}
+            <div className="grid grid-cols-1 gap-4">
+              <label className="text-sm">
+                <span className="block mb-1 text-slate-300">სახელი, გვარი</span>
+                <input
+                  className="w-full rounded-xl bg-slate-800 border border-slate-700 px-4 py-3 outline-none focus:ring-2 focus:ring-emerald-500"
+                  placeholder="რეზო მაქსიმალური"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  autoComplete="off"
+                />
+              </label>
+
+              {/* Payment method */}
+              <div className="flex items-center gap-3 flex-wrap">
+                <span className="text-sm text-slate-300">გადახდის ოპცია:</span>
+                <label className="flex items-center gap-2 text-sm">
+                  <input type="radio" name="method" checked={method === "card"} onChange={() => setMethod("card")} /> ბარათი
+                </label>
+                <label className="flex items-center gap-2 text-sm">
+                  <input type="radio" name="method" checked={method === "apple"} onChange={() => setMethod("apple")} /> Apple Pay
+                </label>
+                <label className="flex items-center gap-2 text-sm">
+                  <input type="radio" name="method" checked={method === "google"} onChange={() => setMethod("google")} /> Google Pay
+                </label>
+              </div>
+
+              {/* Card details */}
+              {method === "card" && (
+                <div className="grid grid-cols-1 gap-4">
+                  <label className="text-sm">
+                    <span className="block mb-1 text-slate-300">ბარათის ნომერი</span>
+                    <input
+                      className="w-full rounded-xl bg-slate-800 border border-slate-700 px-4 py-3 tracking-widest outline-none focus:ring-2 focus:ring-emerald-500"
+                      placeholder="0000 0000 0000 0000"
+                      value={card}
+                      onChange={(e) => setCard(maskCard(e.target.value))}
+                      inputMode="numeric"
+                    />
+                  </label>
+                  <div className="grid grid-cols-2 gap-4">
+                    <label className="text-sm">
+                      <span className="block mb-1 text-slate-300">ვადა (MM/YY)</span>
+                      <input
+                        className="w-full rounded-xl bg-slate-800 border border-slate-700 px-4 py-3 outline-none focus:ring-2 focus:ring-emerald-500"
+                        placeholder="12/34"
+                        value={exp}
+                        onChange={(e) => setExp(maskExp(e.target.value))}
+                        inputMode="numeric"
+                      />
+                    </label>
+                    <label className="text-sm">
+                      <span className="block mb-1 text-slate-300">CVC</span>
+                      <input
+                        className="w-full rounded-xl bg-slate-800 border border-slate-700 px-4 py-3 outline-none focus:ring-2 focus:ring-emerald-500"
+                        placeholder="123"
+                        value={cvc}
+                        onChange={(e) => setCvc(e.target.value.replace(/\D/g, "").slice(0, 4))}
+                        inputMode="numeric"
+                      />
+                    </label>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <button
+              type="submit"
+              disabled={!isValid()}
+              className="w-full py-3 rounded-xl font-bold bg-emerald-500 text-slate-900 shadow enabled:hover:bg-emerald-400 enabled:active:scale-95 transition disabled:opacity-40"
+              title={!isValid() ? "შეავსე ველები (ხუმრობაა მაინც)" : "გადახდა (ხუმრობა)"}
+            >
+              გადახდა (სახუმარო)
             </button>
-            <nav>
-                <ul id="navMenu">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#tours">Tours</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="#" id="bookNowBtn">Book Now</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Discover Your Dream Destination</h1>
-            <p>Experience the world's most breathtaking locations with our expertly crafted tours and personalized service.</p>
-            <div class="btn-group">
-                <a href="#tours" class="btn">Explore Tours</a>
-                <a href="#" class="btn btn-outline" id="heroBookBtn">Book Now</a>
-            </div>
+            <p className="text-[11px] text-slate-400 leading-relaxed">
+              ⚠️ დისკლაიმერი: ეს არის <span className="font-semibold text-slate-200">სატირული/სახუმარო</span> გვერდი. ნამდვილი გადახდა არ სრულდება, მონაცემები <span className="underline">არსად</span> იგზავნება და ყველაფერი მუშაობს ბრაუზერში.
+              გთხოვთ, ნამდვილი ბარათის დეტალები <span className="font-bold">არ შეიყვანოთ</span>.
+            </p>
+          </form>
         </div>
-    </section>
 
-    <!-- Featured Tours -->
-    <section class="section" id="tours">
-        <div class="container">
-            <div class="section-title">
-                <h2>Featured Tours</h2>
-                <p>Discover our most popular travel packages curated for unforgettable experiences.</p>
+        {/* Modal */}
+        {open && (
+          <div className="fixed inset-0 bg-black/70 backdrop-blur-sm grid place-items-center p-4">
+            <div className="max-w-md w-full rounded-3xl bg-slate-900 border border-slate-700 p-6 text-center shadow-2xl">
+              <div className="text-5xl mb-3">🤑</div>
+              <h2 className="text-xl font-extrabold mb-2">გილოცავ, არჩეულია — MAX!</h2>
+              <p className="text-slate-300 mb-4">ბანკმა თავად განსაზღვრა: "რაც გაქვს, იმდენი ჩამოიჭრება". ყველაფერი, რა თქმა უნდა, ხუმრობით 😇</p>
+              <button onClick={() => setOpen(false)} className="px-5 py-3 rounded-xl bg-emerალდ-500 text-slate-900 font-bold hover:bg-emerald-400 active:scale-95 transition w-full">კარგი, გავიცინე</button>
             </div>
-            <div class="tours-grid">
-                <!-- Tour 1 -->
-                <div class="tour-card">
-                    <div class="tour-img">
-                        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Santorini, Greece">
-                    </div>
-                    <div class="tour-info">
-                        <h3>Santorini Sunset Experience</h3>
-                        <div class="tour-location">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Santorini, Greece</span>
-                        </div>
-                        <div class="tour-details">
-                            <div><i class="far fa-calendar"></i> 7 Days</div>
-                            <div><i class="fas fa-users"></i> 12 People</div>
-                        </div>
-                        <div class="tour-price">$2,499 <span>/person</span></div>
-                        <a href="#" class="btn" style="width: 100%; text-align: center; margin-top: 1rem;" onclick="openBookingModal('Santorini Sunset Experience')">Book Now</a>
-                    </div>
-                </div>
-                
-                <!-- Tour 2 -->
-                <div class="tour-card">
-                    <div class="tour-img">
-                        <img src="https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1530&q=80" alt="Kyoto, Japan">
-                    </div>
-                    <div class="tour-info">
-                        <h3>Japanese Cultural Journey</h3>
-                        <div class="tour-location">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Kyoto, Japan</span>
-                        </div>
-                        <div class="tour-details">
-                            <div><i class="far fa-calendar"></i> 10 Days</div>
-                            <div><i class="fas fa-users"></i> 8 People</div>
-                        </div>
-                        <div class="tour-price">$3,299 <span>/person</span></div>
-                        <a href="#" class="btn" style="width: 100%; text-align: center; margin-top: 1rem;" onclick="openBookingModal('Japanese Cultural Journey')">Book Now</a>
-                    </div>
-                </div>
-                
-                <!-- Tour 3 -->
-                <div class="tour-card">
-                    <div class="tour-img">
-                        <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80" alt="Safari, Kenya">
-                    </div>
-                    <div class="tour-info">
-                        <h3>African Safari Adventure</h3>
-                        <div class="tour-location">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Maasai Mara, Kenya</span>
-                        </div>
-                        <div class="tour-details">
-                            <div><i class="far fa-calendar"></i> 14 Days</div>
-                            <div><i class="fas fa-users"></i> 6 People</div>
-                        </div>
-                        <div class="tour-price">$4,799 <span>/person</span></div>
-                        <a href="#" class="btn" style="width: 100%; text-align: center; margin-top: 1rem;" onclick="openBookingModal('African Safari Adventure')">Book Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+          </div>
+        )}
 
-    <!-- About Section -->
-    <section class="section about" id="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>Our Story</h2>
-                    <p>Founded in 2010, Global Wanderlust began as a small team of passionate travelers with a shared vision: to create extraordinary travel experiences that go beyond the ordinary.</p>
-                    <p>Today, we've grown into a premier travel agency with operations in over 30 countries, but our core values remain the same - authenticity, excellence, and personalized service.</p>
-                    <p>Our expert team has personally visited every destination we offer, ensuring we provide only the best experiences for our clients.</p>
-                    
-                    <div class="stats">
-                        <div class="stat-item">
-                            <h3>13+</h3>
-                            <p>Years Experience</p>
-                        </div>
-                        <div class="stat-item">
-                            <h3>5k+</h3>
-                            <p>Happy Travelers</p>
-                        </div>
-                        <div class="stat-item">
-                            <h3>50+</h3>
-                            <p>Destinations</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-img">
-                    <img src="https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1380&q=80" alt="Our Team">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="section testimonials" id="testimonials">
-        <div class="container">
-            <div class="section-title">
-                <h2>Traveler Stories</h2>
-                <p>Hear from our satisfied customers about their unforgettable experiences with Global Wanderlust.</p>
-            </div>
-            <div class="testimonials-grid">
-                <!-- Testimonial 1 -->
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        <p>The Santorini tour exceeded all our expectations. Every detail was perfectly arranged, from the boutique hotel to the private yacht sunset cruise. We'll definitely travel with Global Wanderlust again!</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-img">
-                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah Johnson">
-                        </div>
-                        <div class="author-info">
-                            <h4>Sarah Johnson</h4>
-                            <p>Santorini, Greece</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Testimonial 2 -->
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        <p>Our Japanese cultural tour was a once-in-a-lifetime experience. The tea ceremony with a master, the hidden Kyoto temples, and the ryokan stay were all highlights. The guides were incredibly knowledgeable.</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-img">
-                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Michael Chen">
-                        </div>
-                        <div class="author-info">
-                            <h4>Michael Chen</h4>
-                            <p>Kyoto, Japan</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Testimonial 3 -->
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        <p>The African safari was beyond anything we imagined. Seeing the Big Five up close, staying at the luxury tented camp, and learning from our Maasai guide made this trip unforgettable. Flawless organization.</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-img">
-                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emily Rodriguez">
-                        </div>
-                        <div class="author-info">
-                            <h4>Emily Rodriguez</h4>
-                            <p>Maasai Mara, Kenya</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Payment Methods -->
-    <section class="payment-methods">
-        <div class="container">
-            <h3>We Accept</h3>
-            <div class="payment-icons">
-                <div class="payment-icon">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/2560px-Visa_Inc._logo.svg.png" alt="Visa">
-                </div>
-                <div class="payment-icon">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png" alt="Mastercard">
-                </div>
-                <div class="payment-icon">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/American_Express_logo_%282018%29.svg/1200px-American_Express_logo_%282018%29.svg.png" alt="American Express">
-                </div>
-                <div class="payment-icon">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/PayPal_Logo_Icon_2014.svg/1200px-PayPal_Logo_Icon_2014.svg.png" alt="PayPal">
-                </div>
-                <div class="payment-icon">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/1200px-Bitcoin.svg.png" alt="Bitcoin">
-                </div>
-                <div class="payment-icon">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ethereum-icon-purple.svg/1200px-Ethereum-icon-purple.svg.png" alt="Ethereum">
-                </div>
-                <div class="payment-icon">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Western_Union_logo.svg/2560px-Western_Union_logo.svg.png" alt="Western Union">
-                </div>
-                <div class="payment-icon">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Bank_transfer.svg/1200px-Bank_transfer.svg.png" alt="Bank Transfer">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="section contact" id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Get In Touch</h2>
-                <p>Have questions or ready to book your next adventure? Contact our travel specialists today.</p>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    <p>Our team is available to assist you with any inquiries or to help plan your perfect getaway.</p>
-                    
-                    <div class="contact-details">
-                        <div>
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <h4>Address</h4>
-                                <p>Georgia, Tbilisi<br>Nutsunidze 5th plato, 0183</p>
-                            </div>
-                        </div>
-                        <div>
-                            <i class="fas fa-phone-alt"></i>
-                            <div>
-                                <h4>Phone</h4>
-                                <p>+995(558)757885</p>
-                            </div>
-                        </div>
-                        <div>
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <h4>Email</h4>
-                                <p>info@globalwanderlust.com</p>
-                            </div>
-                        </div>
-                        <div>
-                            <i class="fas fa-clock"></i>
-                            <div>
-                                <h4>Hours</h4>
-                                <p>Monday - Friday: 9am - 6pm<br>Saturday: 10am - 4pm</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <select id="subject" name="subject">
-                                <option value="general">General Inquiry</option>
-                                <option value="booking">Booking Assistance</option>
-                                <option value="custom">Custom Tour Request</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn" style="width: 100%;">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Global Wanderlust</h3>
-                    <p>Creating extraordinary travel experiences since 2010. We specialize in curated, personalized journeys to the world's most breathtaking destinations.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#tours">Tours</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#testimonials">Testimonials</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Destinations</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Europe</a></li>
-                        <li><a href="#">Asia</a></li>
-                        <li><a href="#">Africa</a></li>
-                        <li><a href="#">Americas</a></li>
-                        <li><a href="#">Oceania</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Newsletter</h3>
-                    <p>Subscribe to our newsletter for travel inspiration, exclusive offers, and the latest updates.</p>
-                    <form class="newsletter-form">
-                        <div class="form-group">
-                            <input type="email" placeholder="Your Email Address" required>
-                        </div>
-                        <button type="submit" class="btn">Subscribe</button>
-                    </form>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2023 Global Wanderlust. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Booking Modal -->
-    <div class="modal" id="bookingModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Book Your Tour</h3>
-                <button class="close-modal" id="closeModal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <h4 id="selectedTourTitle">Santorini Sunset Experience</h4>
-                <p>Please fill out the booking form and select your preferred payment method.</p>
-                
-                <form id="bookingForm">
-                    <div class="form-group">
-                        <label for="bookingName">Full Name</label>
-                        <input type="text" id="bookingName" name="bookingName" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="bookingEmail">Email Address</label>
-                        <input type="email" id="bookingEmail" name="bookingEmail" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="bookingPhone">Phone Number</label>
-                        <input type="tel" id="bookingPhone" name="bookingPhone" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="bookingDate">Preferred Travel Date</label>
-                        <input type="date" id="bookingDate" name="bookingDate" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="bookingGuests">Number of Guests</label>
-                        <input type="number" id="bookingGuests" name="bookingGuests" min="1" max="10" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="bookingNotes">Special Requests</label>
-                        <textarea id="bookingNotes" name="bookingNotes" rows="3"></textarea>
-                    </div>
-                    
-                    <h4 style="margin: 1.5rem 0 1rem;">Select Payment Method</h4>
-                    <div class="payment-options">
-                        <div class="payment-option" data-payment="credit">
-                            <i class="far fa-credit-card"></i>
-                            <h4>Credit/Debit Card</h4>
-                            <p>Visa, Mastercard, American Express</p>
-                        </div>
-                        <div class="payment-option" data-payment="paypal">
-                            <i class="fab fa-paypal"></i>
-                            <h4>PayPal</h4>
-                            <p>Secure online payments</p>
-                        </div>
-                        <div class="payment-option" data-payment="crypto">
-                            <i class="fab fa-bitcoin"></i>
-                            <h4>Cryptocurrency</h4>
-                            <p>Bitcoin, Ethereum, USDT</p>
-                        </div>
-                        <div class="payment-option" data-payment="bank">
-                            <i class="fas fa-university"></i>
-                            <h4>Bank Transfer</h4>
-                            <p>Direct bank payment</p>
-                        </div>
-                        <div class="payment-option" data-payment="western">
-                            <i class="fas fa-money-bill-wave"></i>
-                            <h4>Western Union</h4>
-                            <p>International money transfer</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Credit Card Form -->
-                    <div class="payment-form" id="creditForm">
-                        <div class="form-group">
-                            <label for="cardNumber">Card Number</label>
-                            <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456">
-                        </div>
-                        <div class="form-group">
-                            <label for="cardName">Name on Card</label>
-                            <input type="text" id="cardName" name="cardName" placeholder="John Doe">
-                        </div>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                            <div class="form-group">
-                                <label for="cardExpiry">Expiry Date</label>
-                                <input type="text" id="cardExpiry" name="cardExpiry" placeholder="MM/YY">
-                            </div>
-                            <div class="form-group">
-                                <label for="cardCvv">CVV</label>
-                                <input type="text" id="cardCvv" name="cardCvv" placeholder="123">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- PayPal Form -->
-                    <div class="payment-form" id="paypalForm">
-                        <p>You will be redirected to PayPal to complete your payment after submitting this form.</p>
-                        <div class="form-group">
-                            <label for="paypalEmail">PayPal Email</label>
-                            <input type="email" id="paypalEmail" name="paypalEmail">
-                        </div>
-                    </div>
-                    
-                    <!-- Crypto Form -->
-                    <div class="payment-form" id="cryptoForm">
-                        <div class="form-group">
-                            <label for="cryptoType">Cryptocurrency</label>
-                            <select id="cryptoType" name="cryptoType">
-                                <option value="bitcoin">Bitcoin (BTC)</option>
-                                <option value="ethereum">Ethereum (ETH)</option>
-                                <option value="usdt">Tether (USDT)</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Wallet Address</label>
-                            <p style="font-family: monospace; background: #f1f1f1; padding: 0.5rem; border-radius: 5px; word-break: break-all;">3FZbgi29cpjq2GjdwV8eyHuJJnkLtktZc5</p>
-                            <p style="font-size: 0.8rem; color: #666;">Send payment to this address. Your booking will be confirmed after 3 network confirmations.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Bank Transfer Form -->
-                    <div class="payment-form" id="bankForm">
-                        <div class="form-group">
-                            <label>Bank Details</label>
-                            <p><strong>Bank Name:</strong> International Travel Bank</p>
-                            <p><strong>Account Name:</strong> Global Wanderlust Tours Inc.</p>
-                            <p><strong>Account Number:</strong> 1234567890</p>
-                            <p><strong>SWIFT/BIC:</strong> ITBKENYAXXX</p>
-                            <p><strong>IBAN:</strong> KE12345678901234567890</p>
-                            <p style="font-size: 0.8rem; color: #666;">Please include your booking reference in the transfer details.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Western Union Form -->
-                    <div class="payment-form" id="westernForm">
-                        <div class="form-group">
-                            <label for="westernSender">Sender's Full Name</label>
-                            <input type="text" id="westernSender" name="westernSender" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="westernCountry">Sender's Country</label>
-                            <input type="text" id="westernCountry" name="westernCountry" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Recipient Details</label>
-                            <p><strong>Recipient Name:</strong> Global Wanderlust Tours Inc.</p>
-                            <p><strong>Recipient Country:</strong> United States</p>
-                            <p><strong>Recipient City:</strong> New York</p>
-                            <p style="font-size: 0.8rem; color: #666;">After sending the payment, please email us the MTCN number.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group" style="margin-top: 2rem;">
-                        <input type="checkbox" id="agreeTerms" name="agreeTerms" required>
-                        <label for="agreeTerms">I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a></label>
-                    </div>
-                    
-                    <button type="submit" class="btn" style="width: 100%; margin-top: 1rem;">Complete Booking</button>
-                </form>
-            </div>
-        </div>
+        <footer className="text-center mt-6 text-xs text-slate-400">
+          © {new Date().getFullYear()} 
+        </footer>
+      </div>
     </div>
-
-    <script>
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navMenu = document.getElementById('navMenu');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('show');
-        });
-        
-        // Close mobile menu when clicking on a link
-        const navLinks = document.querySelectorAll('#navMenu a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('show');
-            });
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    const headerHeight = document.querySelector('header').offsetHeight;
-                    const targetPosition = targetElement.offsetTop - headerHeight;
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // Booking Modal
-        const bookingModal = document.getElementById('bookingModal');
-        const bookNowBtns = document.querySelectorAll('#bookNowBtn, #heroBookBtn, .tour-card .btn');
-        const closeModal = document.getElementById('closeModal');
-        
-        function openBookingModal(tourTitle) {
-            if (tourTitle) {
-                document.getElementById('selectedTourTitle').textContent = tourTitle;
-            }
-            bookingModal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
-        
-        function closeBookingModal() {
-            bookingModal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-        
-        bookNowBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                openBookingModal();
-            });
-        });
-        
-        closeModal.addEventListener('click', closeBookingModal);
-        
-        // Close modal when clicking outside
-        window.addEventListener('click', (e) => {
-            if (e.target === bookingModal) {
-                closeBookingModal();
-            }
-        });
-        
-        // Payment Method Selection
-        const paymentOptions = document.querySelectorAll('.payment-option');
-        const paymentForms = document.querySelectorAll('.payment-form');
-        
-        paymentOptions.forEach(option => {
-            option.addEventListener('click', () => {
-                // Remove selected class from all options
-                paymentOptions.forEach(opt => opt.classList.remove('selected'));
-                
-                // Add selected class to clicked option
-                option.classList.add('selected');
-                
-                // Hide all payment forms
-                paymentForms.forEach(form => form.style.display = 'none');
-                
-                // Show selected payment form
-                const paymentType = option.getAttribute('data-payment');
-                document.getElementById(`${paymentType}Form`).style.display = 'block';
-            });
-        });
-        
-        // Default select first payment option
-        if (paymentOptions.length > 0) {
-            paymentOptions[0].click();
-        }
-        
-        // Form Submission
-        document.getElementById('contactForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for your message! We will get back to you soon.');
-            e.target.reset();
-        });
-        
-        document.getElementById('bookingForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for your booking! We will send you a confirmation shortly.');
-            closeBookingModal();
-            e.target.reset();
-        });
-        
-        // Newsletter Form
-        document.querySelector('.newsletter-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for subscribing to our newsletter!');
-            e.target.reset();
-        });
-        
-        // Animation on scroll
-        window.addEventListener('scroll', revealOnScroll);
-        
-        function revealOnScroll() {
-            const elements = document.querySelectorAll('.tour-card, .about-img, .testimonial-card, .contact-form');
-            
-            elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                
-                if (elementPosition < windowHeight - 100) {
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
-                }
-            });
-        }
-        
-        // Initialize elements with hidden state
-        document.querySelectorAll('.tour-card, .about-img, .testimonial-card, .contact-form').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-        });
-        
-        // Run once on page load
-        window.addEventListener('load', () => {
-            revealOnScroll();
-        });
-    </script>
-</body>
-</html>
+  );
+}
