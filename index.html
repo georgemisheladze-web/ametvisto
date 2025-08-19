@@ -1,899 +1,391 @@
-<!DOCTYPE html>
+DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Global Wanderlust | Premium Travel Experiences</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Ametvisto - Premium Georgian Travel Agency</title>
+    <meta name="description" content="Discover authentic Georgian experiences with Ametvisto. Premium tours to Tbilisi, Svaneti, Kakheti wine region, and traditional qvevri winemaking. Professional travel services since 2019.">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
     <style>
-        /* CSS will go here */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            /* Luxury Tourism Amethyst palette - Sophisticated & Professional */
+            --amethyst-50: hsl(248, 25%, 97%);
+            --amethyst-100: hsl(248, 20%, 92%);
+            --amethyst-200: hsl(248, 18%, 85%);
+            --amethyst-300: hsl(248, 15%, 70%);
+            --amethyst-400: hsl(248, 20%, 55%);
+            --amethyst-500: hsl(248, 30%, 45%);
+            --amethyst-600: hsl(248, 40%, 35%);
+            --amethyst-700: hsl(248, 45%, 28%);
+            --amethyst-800: hsl(248, 50%, 22%);
+            --amethyst-900: hsl(248, 55%, 16%);
         }
-
+        
         body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
+            font-family: 'Inter', system-ui, sans-serif;
         }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
+        
+        html {
+            scroll-behavior: smooth;
         }
-
-        /* Header Styles */
-        header {
-            background-color: #fff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        
+        .amethyst-50 { background-color: var(--amethyst-50); }
+        .amethyst-100 { background-color: var(--amethyst-100); }
+        .amethyst-200 { background-color: var(--amethyst-200); }
+        .amethyst-300 { background-color: var(--amethyst-300); }
+        .amethyst-400 { background-color: var(--amethyst-400); }
+        .amethyst-500 { background-color: var(--amethyst-500); }
+        .amethyst-600 { background-color: var(--amethyst-600); }
+        .amethyst-700 { background-color: var(--amethyst-700); }
+        .amethyst-800 { background-color: var(--amethyst-800); }
+        .amethyst-900 { background-color: var(--amethyst-900); }
+        
+        .text-amethyst-50 { color: var(--amethyst-50); }
+        .text-amethyst-100 { color: var(--amethyst-100); }
+        .text-amethyst-200 { color: var(--amethyst-200); }
+        .text-amethyst-300 { color: var(--amethyst-300); }
+        .text-amethyst-400 { color: var(--amethyst-400); }
+        .text-amethyst-500 { color: var(--amethyst-500); }
+        .text-amethyst-600 { color: var(--amethyst-600); }
+        .text-amethyst-700 { color: var(--amethyst-700); }
+        .text-amethyst-800 { color: var(--amethyst-800); }
+        .text-amethyst-900 { color: var(--amethyst-900); }
+        
+        .border-amethyst-200 { border-color: var(--amethyst-200); }
+        .border-amethyst-600 { border-color: var(--amethyst-600); }
+        
+        .bg-gradient-amethyst {
+            background: linear-gradient(135deg, var(--amethyst-600), var(--amethyst-800));
+        }
+        
+        .ring-amethyst-200 { ring-color: var(--amethyst-200); }
+        
+        .hover\:bg-amethyst-700:hover { background-color: var(--amethyst-700); }
+        .hover\:text-amethyst-600:hover { color: var(--amethyst-600); }
+        
+        @keyframes bounce {
+            0%, 20%, 53%, 80%, 100% { transform: translateY(0); }
+            40%, 43% { transform: translateY(-30px); }
+            70% { transform: translateY(-15px); }
+            90% { transform: translateY(-4px); }
+        }
+        
+        .animate-bounce { animation: bounce 2s infinite; }
+        
+        .hero-bg {
+            background-image: url('https://storage.georgia.travel/images/tbilisi-picture.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+        }
+        
+        .mobile-menu.active {
+            max-height: 300px;
+        }
+        
+        .floating-cta {
             position: fixed;
-            width: 100%;
-            top: 0;
+            bottom: 20px;
+            right: 20px;
             z-index: 1000;
         }
-
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #2a5ea7;
-            text-decoration: none;
-        }
-
-        .logo span {
-            color: #f7941d;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 2rem;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s;
-            position: relative;
-        }
-
-        nav ul li a:hover {
-            color: #2a5ea7;
-        }
-
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            background: #2a5ea7;
-            bottom: -5px;
-            left: 0;
-            transition: width 0.3s;
-        }
-
-        nav ul li a:hover::after {
-            width: 100%;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #333;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1506929562872-bb421503ef21?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1368&q=80') no-repeat center center/cover;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            color: #fff;
-            margin-top: 70px;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background: #2a5ea7;
-            color: #fff;
-            padding: 0.8rem 2rem;
-            border: none;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background: #1d4a8a;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 2px solid #fff;
-            margin-left: 1rem;
-        }
-
-        .btn-outline:hover {
-            background: #fff;
-            color: #2a5ea7;
-        }
-
-        /* Featured Tours */
-        .section {
-            padding: 5rem 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-title h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: #2a5ea7;
-            margin-bottom: 1rem;
-        }
-
-        .section-title p {
-            color: #666;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .tours-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .tour-card {
-            background: #fff;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .tour-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .tour-img {
-            height: 250px;
-            overflow: hidden;
-        }
-
-        .tour-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-
-        .tour-card:hover .tour-img img {
-            transform: scale(1.1);
-        }
-
-        .tour-info {
-            padding: 1.5rem;
-        }
-
-        .tour-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: #2a5ea7;
-        }
-
-        .tour-location {
-            display: flex;
-            align-items: center;
-            color: #f7941d;
-            margin-bottom: 1rem;
-        }
-
-        .tour-location i {
-            margin-right: 0.5rem;
-        }
-
-        .tour-details {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 1.5rem;
-        }
-
-        .tour-details div {
-            display: flex;
-            align-items: center;
-        }
-
-        .tour-details i {
-            margin-right: 0.5rem;
-            color: #2a5ea7;
-        }
-
-        .tour-price {
-            font-weight: 700;
-            color: #2a5ea7;
-            font-size: 1.2rem;
-        }
-
-        /* About Section */
-        .about {
-            background: #f1f6ff;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-img {
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .about-img img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .about-text h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: #2a5ea7;
-            margin-bottom: 1.5rem;
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-            color: #555;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 1.5rem;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .stat-item h3 {
-            font-size: 2.5rem;
-            color: #2a5ea7;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-item p {
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        /* Testimonials */
-        .testimonials {
-            background: #2a5ea7;
-            color: #fff;
-        }
-
-        .testimonials .section-title h2 {
-            color: #fff;
-        }
-
-        .testimonials .section-title p {
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .testimonial-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 10px;
-            backdrop-filter: blur(5px);
-        }
-
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 1.5rem;
-            position: relative;
-        }
-
-        .testimonial-text::before {
-            content: '"';
-            font-size: 4rem;
-            color: rgba(255, 255, 255, 0.2);
-            position: absolute;
-            top: -1.5rem;
-            left: -1rem;
-            font-family: serif;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-        }
-
-        .author-img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-right: 1rem;
-        }
-
-        .author-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .author-info h4 {
-            margin-bottom: 0.2rem;
-        }
-
-        .author-info p {
-            font-size: 0.8rem;
-            opacity: 0.8;
-        }
-
-        /* Contact Section */
-        .contact {
-            background: #f1f6ff;
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-
-        .contact-info h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            color: #2a5ea7;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-info p {
-            margin-bottom: 2rem;
-            color: #555;
-        }
-
-        .contact-details div {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .contact-details i {
-            width: 40px;
-            height: 40px;
-            background: #2a5ea7;
-            color: #fff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 1rem;
-        }
-
-        .contact-form {
-            background: #fff;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .form-group textarea {
-            height: 150px;
-            resize: vertical;
-        }
-
-        /* Payment Methods */
-        .payment-methods {
-            padding: 3rem 0;
-            background: #fff;
-        }
-
-        .payment-methods h3 {
-            text-align: center;
-            margin-bottom: 2rem;
-            font-family: 'Playfair Display', serif;
-            color: #2a5ea7;
-            font-size: 2rem;
-        }
-
-        .payment-icons {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-        }
-
-        .payment-icon {
-            width: 80px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #fff;
-            border-radius: 5px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            padding: 0.5rem;
-        }
-
-        .payment-icon img {
-            max-width: 100%;
-            max-height: 100%;
-            filter: grayscale(100%);
-            opacity: 0.7;
-            transition: all 0.3s;
-        }
-
-        .payment-icon:hover img {
-            filter: grayscale(0);
-            opacity: 1;
-        }
-
-        /* Footer */
-        footer {
-            background: #1a3a7a;
-            color: #fff;
-            padding: 4rem 0 2rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-column h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            padding-bottom: 0.5rem;
-        }
-
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 50px;
-            height: 2px;
-            background: #f7941d;
-        }
-
-        .footer-column p {
-            margin-bottom: 1rem;
-            opacity: 0.8;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.8rem;
-            list-style: none;
-        }
-
-        .footer-links a {
-            color: #fff;
-            text-decoration: none;
-            opacity: 0.8;
-            transition: opacity 0.3s;
-        }
-
-        .footer-links a:hover {
-            opacity: 1;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: #fff;
-            transition: background 0.3s;
-        }
-
-        .social-links a:hover {
-            background: #f7941d;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .footer-bottom p {
-            opacity: 0.7;
-            font-size: 0.9rem;
-        }
-
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 2000;
-            overflow-y: auto;
-        }
-
-        .modal-content {
-            background: #fff;
-            width: 90%;
-            max-width: 800px;
-            margin: 3rem auto;
-            border-radius: 10px;
-            overflow: hidden;
-            animation: modalFadeIn 0.3s;
-        }
-
-        @keyframes modalFadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .modal-header {
-            padding: 1.5rem;
-            background: #2a5ea7;
-            color: #fff;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .modal-header h3 {
-            font-family: 'Playfair Display', serif;
-        }
-
-        .close-modal {
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        .modal-body {
-            padding: 2rem;
-        }
-
-        .payment-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .payment-option {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 1.5rem;
-            text-align: center;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        .payment-option:hover {
-            border-color: #2a5ea7;
-            box-shadow: 0 5px 15px rgba(42, 94, 167, 0.1);
-        }
-
-        .payment-option.selected {
-            border-color: #2a5ea7;
-            background: #f1f6ff;
-        }
-
-        .payment-option i {
-            font-size: 2.5rem;
-            color: #2a5ea7;
-            margin-bottom: 1rem;
-        }
-
-        .payment-option h4 {
-            margin-bottom: 0.5rem;
-        }
-
-        .payment-option p {
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        .payment-form {
-            margin-top: 2rem;
-            display: none;
-        }
-
-        .payment-form.active {
-            display: block;
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 992px) {
-            .about-content,
-            .contact-content {
-                grid-template-columns: 1fr;
-            }
-
-            .about-img {
-                order: -1;
-            }
-
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-        }
-
+        
         @media (max-width: 768px) {
-            nav ul {
-                display: none;
-                position: absolute;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                background: #fff;
-                flex-direction: column;
-                padding: 1rem 0;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-            }
-
-            nav ul.show {
-                display: flex;
-            }
-
-            nav ul li {
-                margin: 0;
-                padding: 0.8rem 2rem;
-                border-bottom: 1px solid #eee;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .btn {
-                padding: 0.6rem 1.5rem;
-            }
-
-            .section {
-                padding: 3rem 0;
-            }
-
-            .section-title h2 {
-                font-size: 2rem;
+            .floating-cta {
+                bottom: 15px;
+                right: 15px;
             }
         }
-
-        @media (max-width: 576px) {
-            .tours-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .stats {
-                grid-template-columns: 1fr;
-            }
-
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .btn-group {
-                display: flex;
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .btn-outline {
-                margin-left: 0;
-            }
+        
+        .stats-card {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
     </style>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        amethyst: {
+                            50: 'var(--amethyst-50)',
+                            100: 'var(--amethyst-100)',
+                            200: 'var(--amethyst-200)',
+                            300: 'var(--amethyst-300)',
+                            400: 'var(--amethyst-400)',
+                            500: 'var(--amethyst-500)',
+                            600: 'var(--amethyst-600)',
+                            700: 'var(--amethyst-700)',
+                            800: 'var(--amethyst-800)',
+                            900: 'var(--amethyst-900)',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
+<body class="bg-white text-gray-800">
     <!-- Header -->
-    <header>
-        <div class="container header-container">
-            <a href="#" class="logo">Global<span>Wanderlust</span></a>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
-            </button>
-            <nav>
-                <ul id="navMenu">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#tours">Tours</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="#" id="bookNowBtn">Book Now</a></li>
-                </ul>
-            </nav>
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-3 md:py-4">
+                <!-- Professional Logo with Amethyst Gem -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-amethyst rounded-full flex items-center justify-center shadow-lg ring-2 ring-amethyst-200">
+                        <i data-lucide="gem" class="text-white w-5 h-5"></i>
+                    </div>
+                    <div class="flex flex-col leading-none">
+                        <span class="text-2xl font-bold text-amethyst-700 tracking-tight">Ametvisto</span>
+                        <span class="text-xs text-amethyst-600 font-medium tracking-wider uppercase">Georgian Travel</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <button onclick="scrollToSection('home')" class="text-gray-700 hover:text-amethyst-600 transition-colors font-medium nav-link">
+                        <span class="en">Home</span>
+                        <span class="ka hidden">მთავარი</span>
+                    </button>
+                    <button onclick="scrollToSection('tours')" class="text-gray-700 hover:text-amethyst-600 transition-colors font-medium nav-link">
+                        <span class="en">Tours</span>
+                        <span class="ka hidden">ტურები</span>
+                    </button>
+                    <button onclick="scrollToSection('about')" class="text-gray-700 hover:text-amethyst-600 transition-colors font-medium nav-link">
+                        <span class="en">About</span>
+                        <span class="ka hidden">ჩვენ შესახებ</span>
+                    </button>
+                    <button onclick="scrollToSection('contact')" class="text-gray-700 hover:text-amethyst-600 transition-colors font-medium nav-link">
+                        <span class="en">Contact</span>
+                        <span class="ka hidden">კონტაქტი</span>
+                    </button>
+                </nav>
+
+                <!-- Desktop Contact Info -->
+                <div class="hidden lg:flex items-center space-x-4 text-sm">
+                    <div class="flex items-center space-x-1 text-gray-600">
+                        <i data-lucide="phone" class="text-amethyst-500 w-4 h-4"></i>
+                        <span>+995 558 75 78 85</span>
+                    </div>
+                    <div class="flex items-center space-x-1 text-gray-600">
+                        <i data-lucide="mail" class="text-amethyst-500 w-4 h-4"></i>
+                        <span>georgemisheladze@gmail.com</span>
+                    </div>
+                    <div class="flex items-center space-x-1 text-gray-600">
+                        <i data-lucide="map-pin" class="text-amethyst-500 w-4 h-4"></i>
+                        <span>ნუცუბიძის 5, კორპუსი 3</span>
+                    </div>
+                </div>
+
+                <!-- Mobile: Phone + Language + Menu - One Line -->
+                <div class="flex md:hidden items-center space-x-2">
+                    <a href="tel:+995558757885" class="flex items-center space-x-1 text-sm text-gray-800 font-semibold bg-purple-50 px-2 py-1 rounded-full">
+                        <i data-lucide="phone" class="text-amethyst-600 w-3 h-3"></i>
+                        <span class="text-xs">+995 558 75 78 85</span>
+                    </a>
+                    <button onclick="toggleLanguage()" class="bg-purple-600 hover:bg-purple-700 px-2 py-1 rounded-full text-white text-xs font-medium transition-colors min-w-[32px] h-6" id="lang-btn">
+                        <span class="uppercase">KA</span>
+                    </button>
+                    <button class="text-gray-700 hover:text-amethyst-600 ml-1" onclick="toggleMobileMenu()">
+                        <i data-lucide="menu" class="w-5 h-5" id="menu-icon"></i>
+                        <i data-lucide="x" class="w-5 h-5 hidden" id="close-icon"></i>
+                    </button>
+                </div>
+
+                <!-- Desktop Language Switcher -->
+                <div class="hidden md:flex items-center space-x-2">
+                    <button onclick="toggleLanguage()" class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded-full text-white text-sm font-medium transition-colors shadow-sm" id="desktop-lang-btn">
+                        <span class="uppercase">KA</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Navigation Menu -->
+            <div class="mobile-menu md:hidden border-t border-gray-100" id="mobile-menu">
+                <nav class="flex flex-col space-y-3 py-4">
+                    <button onclick="scrollToSection('home')" class="text-gray-700 hover:text-amethyst-600 transition-colors font-medium py-2 text-left nav-link">
+                        <span class="en">Home</span>
+                        <span class="ka hidden">მთავარი</span>
+                    </button>
+                    <button onclick="scrollToSection('tours')" class="text-gray-700 hover:text-amethyst-600 transition-colors font-medium py-2 text-left nav-link">
+                        <span class="en">Tours</span>
+                        <span class="ka hidden">ტურები</span>
+                    </button>
+                    <button onclick="scrollToSection('about')" class="text-gray-700 hover:text-amethyst-600 transition-colors font-medium py-2 text-left nav-link">
+                        <span class="en">About</span>
+                        <span class="ka hidden">ჩვენ შესახებ</span>
+                    </button>
+                    <button onclick="scrollToSection('contact')" class="text-gray-700 hover:text-amethyst-600 transition-colors font-medium py-2 text-left nav-link">
+                        <span class="en">Contact</span>
+                        <span class="ka hidden">კონტაქტი</span>
+                    </button>
+                </nav>
+            </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Discover Your Dream Destination</h1>
-            <p>Experience the world's most breathtaking locations with our expertly crafted tours and personalized service.</p>
-            <div class="btn-group">
-                <a href="#tours" class="btn">Explore Tours</a>
-                <a href="#" class="btn btn-outline" id="heroBookBtn">Book Now</a>
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Image - Tbilisi -->
+        <div class="absolute inset-0 hero-bg"></div>
+        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+        
+        <div class="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                <span class="block hero-title1">
+                    <span class="en">Discover Georgia</span>
+                    <span class="ka hidden">აღმოაჩინეთ საქართველო</span>
+                </span>
+                <span class="text-purple-300 block hero-title2">
+                    <span class="en">Authentic Travel</span>
+                    <span class="ka hidden">ავთენტური მოგზაურობა</span>
+                </span>
+            </h1>
+            
+            <p class="text-xl md:text-2xl mb-8 font-light opacity-90 hero-subtitle">
+                <span class="en">Premium Georgian experiences. Cultural heritage. Natural beauty.</span>
+                <span class="ka hidden">პრემიუმ ქართული გამოცდილება. კულტურული მემკვიდრეობა. ბუნებრივი სილამაზე.</span>
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <button onclick="scrollToSection('tours')" class="bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105 shadow-lg hero-explore">
+                    <span class="en">Explore</span>
+                    <span class="ka hidden">მოგზაურობა</span>
+                </button>
+                <button onclick="scrollToSection('contact')" class="border-2 border-white text-white hover:bg-white hover:text-purple-600 px-8 py-4 rounded-lg font-semibold text-lg transition-all hero-contact">
+                    <span class="en">Contact</span>
+                    <span class="ka hidden">კონტაქტი</span>
+                </button>
             </div>
+            
+            <!-- Phone Number Highlight -->
+            <div class="mt-12 bg-white bg-opacity-20 backdrop-blur-sm rounded-xl p-6 inline-block">
+                <div class="flex items-center justify-center space-x-3">
+                    <i data-lucide="phone" class="text-purple-300 text-xl"></i>
+                    <div>
+                        <div class="text-sm opacity-80 hero-call">
+                            <span class="en">Call Now</span>
+                            <span class="ka hidden">ზარი</span>
+                        </div>
+                        <div class="text-2xl font-bold">+995 558 75 78 85</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i data-lucide="chevron-down" class="text-white text-2xl opacity-70"></i>
         </div>
     </section>
 
-    <!-- Featured Tours -->
-    <section class="section" id="tours">
-        <div class="container">
-            <div class="section-title">
-                <h2>Featured Tours</h2>
-                <p>Discover our most popular travel packages curated for unforgettable experiences.</p>
+    <!-- Tours Section -->
+    <section id="tours" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4 section-title">
+                    <span class="en">Tours</span>
+                    <span class="ka hidden">ტურები</span>
+                </h2>
+                <p class="text-xl text-gray-600 section-subtitle">
+                    <span class="en">Carefully curated Georgian experiences</span>
+                    <span class="ka hidden">შერჩეული ქართული გამოცდილებები</span>
+                </p>
             </div>
-            <div class="tours-grid">
-                <!-- Tour 1 -->
-                <div class="tour-card">
-                    <div class="tour-img">
-                        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Santorini, Greece">
-                    </div>
-                    <div class="tour-info">
-                        <h3>Santorini Sunset Experience</h3>
-                        <div class="tour-location">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Santorini, Greece</span>
-                        </div>
-                        <div class="tour-details">
-                            <div><i class="far fa-calendar"></i> 7 Days</div>
-                            <div><i class="fas fa-users"></i> 12 People</div>
-                        </div>
-                        <div class="tour-price">$2,499 <span>/person</span></div>
-                        <a href="#" class="btn" style="width: 100%; text-align: center; margin-top: 1rem;" onclick="openBookingModal('Santorini Sunset Experience')">Book Now</a>
-                    </div>
-                </div>
-                
-                <!-- Tour 2 -->
-                <div class="tour-card">
-                    <div class="tour-img">
-                        <img src="https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1530&q=80" alt="Kyoto, Japan">
-                    </div>
-                    <div class="tour-info">
-                        <h3>Japanese Cultural Journey</h3>
-                        <div class="tour-location">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Kyoto, Japan</span>
-                        </div>
-                        <div class="tour-details">
-                            <div><i class="far fa-calendar"></i> 10 Days</div>
-                            <div><i class="fas fa-users"></i> 8 People</div>
-                        </div>
-                        <div class="tour-price">$3,299 <span>/person</span></div>
-                        <a href="#" class="btn" style="width: 100%; text-align: center; margin-top: 1rem;" onclick="openBookingModal('Japanese Cultural Journey')">Book Now</a>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Tbilisi Tour -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <img src="https://storage.georgia.travel/images/tbilisi-picture.webp" alt="Tbilisi" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-900 tour-title">
+                            <span class="en">Tbilisi</span>
+                            <span class="ka hidden">თბილისი</span>
+                        </h3>
+                        <p class="text-gray-600 mb-4 tour-desc">
+                            <span class="en">Historic capital. Ancient baths. Modern architecture.</span>
+                            <span class="ka hidden">ისტორიული დედაქალაქი. ძველი აბანოები. თანამედროვე არქიტექტურა.</span>
+                        </p>
+                        <button class="w-full bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-lg font-medium transition-colors book-btn">
+                            <span class="en">Book Now</span>
+                            <span class="ka hidden">დაჯავშნა</span>
+                        </button>
                     </div>
                 </div>
                 
-                <!-- Tour 3 -->
-                <div class="tour-card">
-                    <div class="tour-img">
-                        <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80" alt="Safari, Kenya">
+                <!-- Svaneti Tour -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <img src="https://storage.georgia.travel/images/svaneti-picture.webp" alt="Svaneti" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-900 tour-title">
+                            <span class="en">Svaneti</span>
+                            <span class="ka hidden">სვანეთი</span>
+                        </h3>
+                        <p class="text-gray-600 mb-4 tour-desc">
+                            <span class="en">Mountain villages. UNESCO heritage. Caucasus peaks.</span>
+                            <span class="ka hidden">მთიანი სოფლები. იუნესკოს მემკვიდრეობა. კავკასიონის მწვერვალები.</span>
+                        </p>
+                        <button class="w-full bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-lg font-medium transition-colors book-btn">
+                            <span class="en">Book Now</span>
+                            <span class="ka hidden">დაჯავშნა</span>
+                        </button>
                     </div>
-                    <div class="tour-info">
-                        <h3>African Safari Adventure</h3>
-                        <div class="tour-location">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Maasai Mara, Kenya</span>
-                        </div>
-                        <div class="tour-details">
-                            <div><i class="far fa-calendar"></i> 14 Days</div>
-                            <div><i class="fas fa-users"></i> 6 People</div>
-                        </div>
-                        <div class="tour-price">$4,799 <span>/person</span></div>
-                        <a href="#" class="btn" style="width: 100%; text-align: center; margin-top: 1rem;" onclick="openBookingModal('African Safari Adventure')">Book Now</a>
+                </div>
+                
+                <!-- Kakheti Tour -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <img src="https://storage.georgia.travel/images/kakheti-picture.webp" alt="Kakheti" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-900 tour-title">
+                            <span class="en">Kakheti</span>
+                            <span class="ka hidden">კახეთი</span>
+                        </h3>
+                        <p class="text-gray-600 mb-4 tour-desc">
+                            <span class="en">Wine region. Ancient traditions. Vineyard tours.</span>
+                            <span class="ka hidden">ღვინის რეგიონი. ძველი ტრადიციები. ვენახების ექსკურსიები.</span>
+                        </p>
+                        <button class="w-full bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-lg font-medium transition-colors book-btn">
+                            <span class="en">Book Now</span>
+                            <span class="ka hidden">დაჯავშნა</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Qvevri Tour -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <img src="https://storage.georgia.travel/images/qvevri-picture.webp" alt="Qvevri" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-900 tour-title">
+                            <span class="en">Qvevri</span>
+                            <span class="ka hidden">ქვევრი</span>
+                        </h3>
+                        <p class="text-gray-600 mb-4 tour-desc">
+                            <span class="en">Traditional winemaking. 8000-year heritage. UNESCO recognized.</span>
+                            <span class="ka hidden">ტრადიციული მღვინეობა. 8000 წლის მემკვიდრეობა. იუნესკოს აღიარება.</span>
+                        </p>
+                        <button class="w-full bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-lg font-medium transition-colors book-btn">
+                            <span class="en">Book Now</span>
+                            <span class="ka hidden">დაჯავშნა</span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -901,560 +393,355 @@
     </section>
 
     <!-- About Section -->
-    <section class="section about" id="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>Our Story</h2>
-                    <p>Founded in 2010, Global Wanderlust began as a small team of passionate travelers with a shared vision: to create extraordinary travel experiences that go beyond the ordinary.</p>
-                    <p>Today, we've grown into a premier travel agency with operations in over 30 countries, but our core values remain the same - authenticity, excellence, and personalized service.</p>
-                    <p>Our expert team has personally visited every destination we offer, ensuring we provide only the best experiences for our clients.</p>
-                    
-                    <div class="stats">
-                        <div class="stat-item">
-                            <h3>13+</h3>
-                            <p>Years Experience</p>
-                        </div>
-                        <div class="stat-item">
-                            <h3>5k+</h3>
-                            <p>Happy Travelers</p>
-                        </div>
-                        <div class="stat-item">
-                            <h3>50+</h3>
-                            <p>Destinations</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-img">
-                    <img src="https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1380&q=80" alt="Our Team">
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4 section-title">
+                    <span class="en">About</span>
+                    <span class="ka hidden">ჩვენ შესახებ</span>
+                </h2>
+                <div class="max-w-3xl mx-auto">
+                    <p class="text-xl text-gray-600 mb-4 about-desc1">
+                        <span class="en">Premium Georgian travel experiences. Authentic. Professional. Memorable.</span>
+                        <span class="ka hidden">პრემიუმ ქართული მოგზაურობის გამოცდილება. ავთენტური. პროფესიონალური. დაუვიწყარი.</span>
+                    </p>
+                    <p class="text-lg text-gray-600 about-desc2">
+                        <span class="en">Based in Tbilisi. Specializing in cultural heritage and natural beauty tours.</span>
+                        <span class="ka hidden">თბილისში მდებარეობით. სპეციალიზაცია: კულტურული მემკვიდრეობა და ბუნებრივი სილამაზე.</span>
+                    </p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="section testimonials" id="testimonials">
-        <div class="container">
-            <div class="section-title">
-                <h2>Traveler Stories</h2>
-                <p>Hear from our satisfied customers about their unforgettable experiences with Global Wanderlust.</p>
-            </div>
-            <div class="testimonials-grid">
-                <!-- Testimonial 1 -->
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        <p>The Santorini tour exceeded all our expectations. Every detail was perfectly arranged, from the boutique hotel to the private yacht sunset cruise. We'll definitely travel with Global Wanderlust again!</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-img">
-                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah Johnson">
-                        </div>
-                        <div class="author-info">
-                            <h4>Sarah Johnson</h4>
-                            <p>Santorini, Greece</p>
-                        </div>
+            
+            <!-- Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="stats-card">
+                    <div class="text-3xl font-bold text-purple-600">500+</div>
+                    <div class="text-gray-600 stats-text">
+                        <span class="en">Happy Travelers</span>
+                        <span class="ka hidden">კმაყოფილი მომხმარებელი</span>
                     </div>
                 </div>
-                
-                <!-- Testimonial 2 -->
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        <p>Our Japanese cultural tour was a once-in-a-lifetime experience. The tea ceremony with a master, the hidden Kyoto temples, and the ryokan stay were all highlights. The guides were incredibly knowledgeable.</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-img">
-                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Michael Chen">
-                        </div>
-                        <div class="author-info">
-                            <h4>Michael Chen</h4>
-                            <p>Kyoto, Japan</p>
-                        </div>
+                <div class="stats-card">
+                    <div class="text-3xl font-bold text-purple-600">20+</div>
+                    <div class="text-gray-600 stats-text">
+                        <span class="en">Unique Tours</span>
+                        <span class="ka hidden">უნიკალური ტური</span>
                     </div>
                 </div>
-                
-                <!-- Testimonial 3 -->
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        <p>The African safari was beyond anything we imagined. Seeing the Big Five up close, staying at the luxury tented camp, and learning from our Maasai guide made this trip unforgettable. Flawless organization.</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-img">
-                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emily Rodriguez">
-                        </div>
-                        <div class="author-info">
-                            <h4>Emily Rodriguez</h4>
-                            <p>Maasai Mara, Kenya</p>
-                        </div>
+                <div class="stats-card">
+                    <div class="text-3xl font-bold text-purple-600">5+</div>
+                    <div class="text-gray-600 stats-text">
+                        <span class="en">Years Experience</span>
+                        <span class="ka hidden">წლის გამოცდილება</span>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Payment Methods -->
-    <section class="payment-methods">
-        <div class="container">
-            <h3>We Accept</h3>
-            <div class="payment-icons">
-                <div class="payment-icon">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/2560px-Visa_Inc._logo.svg.png" alt="Visa">
-                </div>
-                <div class="payment-icon">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png" alt="Mastercard">
-                </div>
-                <div class="payment-icon">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/American_Express_logo_%282018%29.svg/1200px-American_Express_logo_%282018%29.svg.png" alt="American Express">
-                </div>
-                <div class="payment-icon">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/PayPal_Logo_Icon_2014.svg/1200px-PayPal_Logo_Icon_2014.svg.png" alt="PayPal">
-                </div>
-                <div class="payment-icon">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/1200px-Bitcoin.svg.png" alt="Bitcoin">
-                </div>
-                <div class="payment-icon">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ethereum-icon-purple.svg/1200px-Ethereum-icon-purple.svg.png" alt="Ethereum">
-                </div>
-                <div class="payment-icon">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Western_Union_logo.svg/2560px-Western_Union_logo.svg.png" alt="Western Union">
-                </div>
-                <div class="payment-icon">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Bank_transfer.svg/1200px-Bank_transfer.svg.png" alt="Bank Transfer">
+                <div class="stats-card">
+                    <div class="text-3xl font-bold text-purple-600">4.9</div>
+                    <div class="text-gray-600 stats-text">
+                        <span class="en">Average Rating</span>
+                        <span class="ka hidden">საშუალო რეიტინგი</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="section contact" id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Get In Touch</h2>
-                <p>Have questions or ready to book your next adventure? Contact our travel specialists today.</p>
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4 section-title">
+                    <span class="en">Contact</span>
+                    <span class="ka hidden">კონტაქტი</span>
+                </h2>
+                <p class="text-xl text-gray-600 contact-subtitle">
+                    <span class="en">Plan your Georgian experience</span>
+                    <span class="ka hidden">დაგეგმეთ თქვენი ქართული გამოცდილება</span>
+                </p>
             </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    <p>Our team is available to assist you with any inquiries or to help plan your perfect getaway.</p>
-                    
-                    <div class="contact-details">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <h3 class="text-2xl font-bold mb-6 text-gray-900 form-title">
+                        <span class="en">Inquiry Form</span>
+                        <span class="ka hidden">მოთხოვნის ფორმა</span>
+                    </h3>
+                    <form id="booking-form" class="space-y-6">
                         <div>
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <h4>Address</h4>
-                                <p>Georgia, Tbilisi<br>Nutsunidze 5th plato, 0183</p>
-                            </div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                <span class="en">Name *</span>
+                                <span class="ka hidden">სახელი *</span>
+                            </label>
+                            <input type="text" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
                         </div>
                         <div>
-                            <i class="fas fa-phone-alt"></i>
-                            <div>
-                                <h4>Phone</h4>
-                                <p>+995(558)757885</p>
-                            </div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                <span class="en">Email *</span>
+                                <span class="ka hidden">ელ-ფოსტა *</span>
+                            </label>
+                            <input type="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
                         </div>
                         <div>
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <h4>Email</h4>
-                                <p>info@globalwanderlust.com</p>
-                            </div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                <span class="en">Phone</span>
+                                <span class="ka hidden">ტელეფონი</span>
+                            </label>
+                            <input type="tel" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
                         </div>
                         <div>
-                            <i class="fas fa-clock"></i>
-                            <div>
-                                <h4>Hours</h4>
-                                <p>Monday - Friday: 9am - 6pm<br>Saturday: 10am - 4pm</p>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                <span class="en">Preferred Tour</span>
+                                <span class="ka hidden">სასურველი ტური</span>
+                            </label>
+                            <select name="tour" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                                <option value="">
+                                    <span class="en">Select a tour</span>
+                                    <span class="ka hidden">აირჩიეთ ტური</span>
+                                </option>
+                                <option value="tbilisi">Tbilisi / თბილისი</option>
+                                <option value="svaneti">Svaneti / სვანეთი</option>
+                                <option value="kakheti">Kakheti / კახეთი</option>
+                                <option value="qvevri">Qvevri / ქვევრი</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                <span class="en">Message</span>
+                                <span class="ka hidden">შეტყობინება</span>
+                            </label>
+                            <textarea name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 px-6 rounded-lg font-semibold transition-colors submit-btn">
+                            <span class="en">Send Inquiry</span>
+                            <span class="ka hidden">მოთხოვნის გაგზავნა</span>
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Contact Information -->
+                <div class="space-y-8">
+                    <!-- Direct Contact -->
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h3 class="text-2xl font-bold mb-6 text-gray-900">
+                            <span class="en">Direct Contact</span>
+                            <span class="ka hidden">პირდაპირი კონტაქტი</span>
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-3">
+                                <i data-lucide="phone" class="text-purple-500 w-5 h-5"></i>
+                                <div>
+                                    <div class="font-medium text-gray-900">+995 558 75 78 85</div>
+                                    <div class="text-sm text-gray-600">
+                                        <span class="en">24/7 Support</span>
+                                        <span class="ka hidden">24/7 მხარდაჭერა</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i data-lucide="mail" class="text-purple-500 w-5 h-5"></i>
+                                <div>
+                                    <div class="font-medium text-gray-900">georgemisheladze@gmail.com</div>
+                                    <div class="text-sm text-gray-600">
+                                        <span class="en">Email Support</span>
+                                        <span class="ka hidden">ელ-ფოსტით მხარდაჭერა</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i data-lucide="map-pin" class="text-purple-500 w-5 h-5"></i>
+                                <div>
+                                    <div class="font-medium text-gray-900">5 Nutsubidze Str. Building 3</div>
+                                    <div class="text-sm text-gray-600">Tbilisi, Georgia</div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <select id="subject" name="subject">
-                                <option value="general">General Inquiry</option>
-                                <option value="booking">Booking Assistance</option>
-                                <option value="custom">Custom Tour Request</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn" style="width: 100%;">Send Message</button>
-                    </form>
+                    
+                    <!-- WhatsApp Quick Contact -->
+                    <div class="bg-green-50 border border-green-200 rounded-xl p-8">
+                        <h3 class="text-2xl font-bold mb-4 text-green-800 whatsapp-title">
+                            <span class="en">WhatsApp</span>
+                            <span class="ka hidden">WhatsApp</span>
+                        </h3>
+                        <p class="text-green-700 mb-6 whatsapp-desc">
+                            <span class="en">Quick consultation</span>
+                            <span class="ka hidden">სწრაფი კონსულტაცია</span>
+                        </p>
+                        <a href="https://wa.me/995558757885" target="_blank" class="inline-flex items-center space-x-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                            </svg>
+                            <span class="whatsapp-btn">
+                                <span class="en">Chat on WhatsApp</span>
+                                <span class="ka hidden">WhatsApp-ზე ჩატი</span>
+                            </span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Global Wanderlust</h3>
-                    <p>Creating extraordinary travel experiences since 2010. We specialize in curated, personalized journeys to the world's most breathtaking destinations.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#tours">Tours</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#testimonials">Testimonials</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Destinations</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Europe</a></li>
-                        <li><a href="#">Asia</a></li>
-                        <li><a href="#">Africa</a></li>
-                        <li><a href="#">Americas</a></li>
-                        <li><a href="#">Oceania</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Newsletter</h3>
-                    <p>Subscribe to our newsletter for travel inspiration, exclusive offers, and the latest updates.</p>
-                    <form class="newsletter-form">
-                        <div class="form-group">
-                            <input type="email" placeholder="Your Email Address" required>
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 bg-gradient-amethyst rounded-full flex items-center justify-center shadow-lg">
+                            <i data-lucide="gem" class="text-white w-5 h-5"></i>
                         </div>
-                        <button type="submit" class="btn">Subscribe</button>
-                    </form>
+                        <div class="flex flex-col leading-none">
+                            <span class="text-2xl font-bold text-purple-300 tracking-tight">Ametvisto</span>
+                            <span class="text-xs text-purple-400 font-medium tracking-wider uppercase">Georgian Travel</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4 footer-desc">
+                        <span class="en">Premium Georgian travel. Est. 2019.</span>
+                        <span class="ka hidden">პრემიუმ ქართული მოგზაურობა. დაფ. 2019.</span>
+                    </p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="font-semibold mb-4">
+                        <span class="en">Quick Links</span>
+                        <span class="ka hidden">სწრაფი ლინკები</span>
+                    </h3>
+                    <ul class="space-y-2">
+                        <li><button onclick="scrollToSection('tours')" class="text-gray-300 hover:text-white transition-colors nav-link">
+                            <span class="en">Tours</span>
+                            <span class="ka hidden">ტურები</span>
+                        </button></li>
+                        <li><button onclick="scrollToSection('about')" class="text-gray-300 hover:text-white transition-colors nav-link">
+                            <span class="en">About</span>
+                            <span class="ka hidden">ჩვენ შესახებ</span>
+                        </button></li>
+                        <li><button onclick="scrollToSection('contact')" class="text-gray-300 hover:text-white transition-colors nav-link">
+                            <span class="en">Contact</span>
+                            <span class="ka hidden">კონტაქტი</span>
+                        </button></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h3 class="font-semibold mb-4">
+                        <span class="en">Contact</span>
+                        <span class="ka hidden">კონტაქტი</span>
+                    </h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>+995 558 75 78 85</li>
+                        <li>georgemisheladze@gmail.com</li>
+                        <li>Tbilisi, Georgia</li>
+                    </ul>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2023 Global Wanderlust. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p class="footer-copyright">
+                    <span class="en">© 2024 Ametvisto Travel Agency. All rights reserved.</span>
+                    <span class="ka hidden">© 2024 ამეტვისტო სამგზავრო სააგენტო. ყველა უფლება დაცულია.</span>
+                </p>
             </div>
         </div>
     </footer>
 
-    <!-- Booking Modal -->
-    <div class="modal" id="bookingModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Book Your Tour</h3>
-                <button class="close-modal" id="closeModal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <h4 id="selectedTourTitle">Santorini Sunset Experience</h4>
-                <p>Please fill out the booking form and select your preferred payment method.</p>
-                
-                <form id="bookingForm">
-                    <div class="form-group">
-                        <label for="bookingName">Full Name</label>
-                        <input type="text" id="bookingName" name="bookingName" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="bookingEmail">Email Address</label>
-                        <input type="email" id="bookingEmail" name="bookingEmail" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="bookingPhone">Phone Number</label>
-                        <input type="tel" id="bookingPhone" name="bookingPhone" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="bookingDate">Preferred Travel Date</label>
-                        <input type="date" id="bookingDate" name="bookingDate" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="bookingGuests">Number of Guests</label>
-                        <input type="number" id="bookingGuests" name="bookingGuests" min="1" max="10" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="bookingNotes">Special Requests</label>
-                        <textarea id="bookingNotes" name="bookingNotes" rows="3"></textarea>
-                    </div>
-                    
-                    <h4 style="margin: 1.5rem 0 1rem;">Select Payment Method</h4>
-                    <div class="payment-options">
-                        <div class="payment-option" data-payment="credit">
-                            <i class="far fa-credit-card"></i>
-                            <h4>Credit/Debit Card</h4>
-                            <p>Visa, Mastercard, American Express</p>
-                        </div>
-                        <div class="payment-option" data-payment="paypal">
-                            <i class="fab fa-paypal"></i>
-                            <h4>PayPal</h4>
-                            <p>Secure online payments</p>
-                        </div>
-                        <div class="payment-option" data-payment="crypto">
-                            <i class="fab fa-bitcoin"></i>
-                            <h4>Cryptocurrency</h4>
-                            <p>Bitcoin, Ethereum, USDT</p>
-                        </div>
-                        <div class="payment-option" data-payment="bank">
-                            <i class="fas fa-university"></i>
-                            <h4>Bank Transfer</h4>
-                            <p>Direct bank payment</p>
-                        </div>
-                        <div class="payment-option" data-payment="western">
-                            <i class="fas fa-money-bill-wave"></i>
-                            <h4>Western Union</h4>
-                            <p>International money transfer</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Credit Card Form -->
-                    <div class="payment-form" id="creditForm">
-                        <div class="form-group">
-                            <label for="cardNumber">Card Number</label>
-                            <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456">
-                        </div>
-                        <div class="form-group">
-                            <label for="cardName">Name on Card</label>
-                            <input type="text" id="cardName" name="cardName" placeholder="John Doe">
-                        </div>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                            <div class="form-group">
-                                <label for="cardExpiry">Expiry Date</label>
-                                <input type="text" id="cardExpiry" name="cardExpiry" placeholder="MM/YY">
-                            </div>
-                            <div class="form-group">
-                                <label for="cardCvv">CVV</label>
-                                <input type="text" id="cardCvv" name="cardCvv" placeholder="123">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- PayPal Form -->
-                    <div class="payment-form" id="paypalForm">
-                        <p>You will be redirected to PayPal to complete your payment after submitting this form.</p>
-                        <div class="form-group">
-                            <label for="paypalEmail">PayPal Email</label>
-                            <input type="email" id="paypalEmail" name="paypalEmail">
-                        </div>
-                    </div>
-                    
-                    <!-- Crypto Form -->
-                    <div class="payment-form" id="cryptoForm">
-                        <div class="form-group">
-                            <label for="cryptoType">Cryptocurrency</label>
-                            <select id="cryptoType" name="cryptoType">
-                                <option value="bitcoin">Bitcoin (BTC)</option>
-                                <option value="ethereum">Ethereum (ETH)</option>
-                                <option value="usdt">Tether (USDT)</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Wallet Address</label>
-                            <p style="font-family: monospace; background: #f1f1f1; padding: 0.5rem; border-radius: 5px; word-break: break-all;">3FZbgi29cpjq2GjdwV8eyHuJJnkLtktZc5</p>
-                            <p style="font-size: 0.8rem; color: #666;">Send payment to this address. Your booking will be confirmed after 3 network confirmations.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Bank Transfer Form -->
-                    <div class="payment-form" id="bankForm">
-                        <div class="form-group">
-                            <label>Bank Details</label>
-                            <p><strong>Bank Name:</strong> International Travel Bank</p>
-                            <p><strong>Account Name:</strong> Global Wanderlust Tours Inc.</p>
-                            <p><strong>Account Number:</strong> 1234567890</p>
-                            <p><strong>SWIFT/BIC:</strong> ITBKENYAXXX</p>
-                            <p><strong>IBAN:</strong> KE12345678901234567890</p>
-                            <p style="font-size: 0.8rem; color: #666;">Please include your booking reference in the transfer details.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Western Union Form -->
-                    <div class="payment-form" id="westernForm">
-                        <div class="form-group">
-                            <label for="westernSender">Sender's Full Name</label>
-                            <input type="text" id="westernSender" name="westernSender" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="westernCountry">Sender's Country</label>
-                            <input type="text" id="westernCountry" name="westernCountry" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Recipient Details</label>
-                            <p><strong>Recipient Name:</strong> Global Wanderlust Tours Inc.</p>
-                            <p><strong>Recipient Country:</strong> United States</p>
-                            <p><strong>Recipient City:</strong> New York</p>
-                            <p style="font-size: 0.8rem; color: #666;">After sending the payment, please email us the MTCN number.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group" style="margin-top: 2rem;">
-                        <input type="checkbox" id="agreeTerms" name="agreeTerms" required>
-                        <label for="agreeTerms">I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a></label>
-                    </div>
-                    
-                    <button type="submit" class="btn" style="width: 100%; margin-top: 1rem;">Complete Booking</button>
-                </form>
-            </div>
-        </div>
+    <!-- Floating CTA -->
+    <div class="floating-cta">
+        <a href="tel:+995558757885" class="bg-purple-600 hover:bg-purple-700 text-white p-4 rounded-full shadow-lg transition-all hover:scale-110">
+            <i data-lucide="phone" class="w-6 h-6"></i>
+        </a>
     </div>
 
     <script>
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navMenu = document.getElementById('navMenu');
+        // Initialize Lucide icons
+        lucide.createIcons();
         
-        mobileMenuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('show');
-        });
+        // Language management
+        let currentLanguage = localStorage.getItem('language') || 'en';
         
-        // Close mobile menu when clicking on a link
-        const navLinks = document.querySelectorAll('#navMenu a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('show');
-            });
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    const headerHeight = document.querySelector('header').offsetHeight;
-                    const targetPosition = targetElement.offsetTop - headerHeight;
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // Booking Modal
-        const bookingModal = document.getElementById('bookingModal');
-        const bookNowBtns = document.querySelectorAll('#bookNowBtn, #heroBookBtn, .tour-card .btn');
-        const closeModal = document.getElementById('closeModal');
-        
-        function openBookingModal(tourTitle) {
-            if (tourTitle) {
-                document.getElementById('selectedTourTitle').textContent = tourTitle;
-            }
-            bookingModal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
-        
-        function closeBookingModal() {
-            bookingModal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-        
-        bookNowBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                openBookingModal();
-            });
-        });
-        
-        closeModal.addEventListener('click', closeBookingModal);
-        
-        // Close modal when clicking outside
-        window.addEventListener('click', (e) => {
-            if (e.target === bookingModal) {
-                closeBookingModal();
-            }
-        });
-        
-        // Payment Method Selection
-        const paymentOptions = document.querySelectorAll('.payment-option');
-        const paymentForms = document.querySelectorAll('.payment-form');
-        
-        paymentOptions.forEach(option => {
-            option.addEventListener('click', () => {
-                // Remove selected class from all options
-                paymentOptions.forEach(opt => opt.classList.remove('selected'));
-                
-                // Add selected class to clicked option
-                option.classList.add('selected');
-                
-                // Hide all payment forms
-                paymentForms.forEach(form => form.style.display = 'none');
-                
-                // Show selected payment form
-                const paymentType = option.getAttribute('data-payment');
-                document.getElementById(`${paymentType}Form`).style.display = 'block';
-            });
-        });
-        
-        // Default select first payment option
-        if (paymentOptions.length > 0) {
-            paymentOptions[0].click();
-        }
-        
-        // Form Submission
-        document.getElementById('contactForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for your message! We will get back to you soon.');
-            e.target.reset();
-        });
-        
-        document.getElementById('bookingForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for your booking! We will send you a confirmation shortly.');
-            closeBookingModal();
-            e.target.reset();
-        });
-        
-        // Newsletter Form
-        document.querySelector('.newsletter-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for subscribing to our newsletter!');
-            e.target.reset();
-        });
-        
-        // Animation on scroll
-        window.addEventListener('scroll', revealOnScroll);
-        
-        function revealOnScroll() {
-            const elements = document.querySelectorAll('.tour-card, .about-img, .testimonial-card, .contact-form');
-            
+        function updateLanguage() {
+            const elements = document.querySelectorAll('[class*="en"], [class*="ka"]');
             elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                
-                if (elementPosition < windowHeight - 100) {
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
+                if (element.classList.contains('en')) {
+                    element.style.display = currentLanguage === 'en' ? 'inline' : 'none';
+                }
+                if (element.classList.contains('ka')) {
+                    element.style.display = currentLanguage === 'ka' ? 'inline' : 'none';
                 }
             });
+            
+            // Update language buttons
+            const langBtn = document.getElementById('lang-btn');
+            const desktopLangBtn = document.getElementById('desktop-lang-btn');
+            const newText = currentLanguage === 'en' ? 'KA' : 'EN';
+            
+            if (langBtn) langBtn.innerHTML = `<span class="uppercase">${newText}</span>`;
+            if (desktopLangBtn) desktopLangBtn.innerHTML = `<span class="uppercase">${newText}</span>`;
+            
+            // Update HTML lang attribute
+            document.documentElement.lang = currentLanguage;
         }
         
-        // Initialize elements with hidden state
-        document.querySelectorAll('.tour-card, .about-img, .testimonial-card, .contact-form').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        function toggleLanguage() {
+            currentLanguage = currentLanguage === 'en' ? 'ka' : 'en';
+            localStorage.setItem('language', currentLanguage);
+            updateLanguage();
+        }
+        
+        // Mobile menu management
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            const closeIcon = document.getElementById('close-icon');
+            
+            mobileMenu.classList.toggle('active');
+            menuIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        }
+        
+        // Smooth scrolling
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+                // Close mobile menu if open
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (mobileMenu.classList.contains('active')) {
+                    toggleMobileMenu();
+                }
+            }
+        }
+        
+        // Form handling
+        document.getElementById('booking-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Simulate form submission
+            alert(currentLanguage === 'en' 
+                ? 'Thank you for your inquiry! We will contact you soon.'
+                : 'გმადლობთ თქვენი მოთხოვნისთვის! ჩვენ მალე დაგიკავშირდებით.');
+            
+            this.reset();
         });
         
-        // Run once on page load
-        window.addEventListener('load', () => {
-            revealOnScroll();
+        // Initialize language on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            updateLanguage();
+            lucide.createIcons();
+        });
+        
+        // Book now button handlers
+        document.querySelectorAll('.book-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                scrollToSection('contact');
+            });
         });
     </script>
 </body>
