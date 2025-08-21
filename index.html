@@ -340,6 +340,17 @@
          .sub-header {
              display: none;
          }
+
+        .header-number {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .header {
+            position: relative;
+        }
         }
     </style>
     
@@ -368,7 +379,7 @@
 </head>
 <body class="bg-white text-gray-800">
     <!-- Header -->
-    <header class="bg-white/80 backdrop-blur-md border-b border-white/20 shadow-lg sticky top-0 z-50">
+    <header class="bg-white/80 backdrop-blur-md border-b border-white/20 shadow-lg sticky top-0 z-50 header">
         <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-3 md:py-4">
                 <!-- Professional Logo with Custom Ametvisto Logo -->
@@ -405,7 +416,7 @@
                 </nav>
 
                 <!-- Desktop Contact Info - Only Phone (Positioned Left) -->
-                <div class="hidden lg:flex items-center mr-4">
+                <div class="hidden lg:flex items-center mr-4 header-number">
                     <div class="flex items-center space-x-1 text-gray-600 text-sm">
                         <i data-lucide="phone" class="text-amethyst-500 w-4 h-4"></i>
                         <span>+995 558 75 78 85</span>
